@@ -1,32 +1,43 @@
 .d-header
-  ヘッダーをrenderする
+  =render partial: "heder"
 .d-main
   .d-showMain
     .d-content
-      .d-itemBox
-        .d-itemBox__name
-          product1
-        .d-itemBox__body
-          %ul
-            %li
-              = image_tag  "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-              %ul
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", :width => "75", :height => "75"
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", :width => "75", :height => "75"
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", :width => "75", :height => "75"
+      .d-content__big-category
+        = link_to "FURIMA", "#"
+        >
+      .d-content__middle-category
+        = link_to "メンズ", "#"
+        >
+      .d-content__small-category
+        = link_to "ノーカラージャケット"
+        >
+      
 
-        .d-itemBox__price
-          ¥20,000
-          .d-itemBox__price-detail
-            %span (税込)
-            %span 送料込み
-        .d-itemDetail
-          .noticeMsg
-            %p
-              商品紹介詳細を置く
+    .d-itemBox
+      .d-itemBox__name
+        product1
+      .d-itemBox__body
+        %ul
+          %li
+            = image_tag  "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+            %ul
+              %li
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", :width => "75", :height => "75"
+              %li
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", :width => "75", :height => "75"
+              %li
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", :width => "75", :height => "75"
+
+      .d-itemBox__price
+        ¥20,000
+        .d-itemBox__price-detail
+          %span (税込)
+          %span 送料込み
+      .d-itemDetail
+        .noticeMsg
+          %p
+          商品紹介詳細を置く
         .d-table
           %table
             %tbody
@@ -78,13 +89,50 @@
           =icon('fa','comment')
           コメントする
 
-    %ur.d-links
-      %li 
-        =link_to "<前の商品"
-      %li 
-        =link_to "後ろの商品>"
-    .d-relatedItems
-      =link_to "カテゴリをもっと見る"
+    -# %ur.d-links
+    -#   %li 
+    -#     =link_to "<前の商品"
+    -#   %li 
+    -#     =link_to "後ろの商品>"
+    -# .d-relatedItems
+    -#   =link_to "カテゴリをもっと見る"
 
-.d-footer
-  フッターをレンダーする
+  .footer
+    %ul.contents_list
+      %li.content
+        %h2.content__head FURIMAについて
+        %ul
+          %li
+            = link_to "会社概要(運営会社)", "#"
+          %li
+            = link_to "プライバシーポリシー", "#"
+          %li
+            = link_to "FURIMA利用規約","#"
+          %li
+            = link_to "ポイントに関する特約", "#"
+      %li.content
+        %h2.content__head FURIMAを見る
+        %ul
+          %li
+            = link_to "カテゴリー一覧", "#"
+          %li
+            = link_to "ブランド一覧", "#" 
+      %li.content
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "FURIMAガイド", "#"
+          %li
+            = link_to "FURIMAロゴ利用ガイドライン", "#"
+          %li
+            = link_to "お知らせ", "#"
+    .footer__logo
+      %span.image
+        = image_tag "/assets/material/logo/logo-white.png", class: "footerLogo"
+    %p © FURIMA
+
+.footer_camera
+  .footer_camera_btn
+    = link_to '出品', "#"
+  %span
+    = image_tag "/assets/material/icon/icon_camera.png", class: "icon-camera"
