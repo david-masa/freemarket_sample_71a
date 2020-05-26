@@ -10,10 +10,9 @@
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 ### Association
-has_one :address
-has_one :card
-has_many :items
-</br>
+has_one :address</br>
+has_one :card</br>
+has_many :items</br>
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -30,10 +29,9 @@ has_many :items
 |user_id|integer|null: false, foreign_key: true|
 |costomer|integer||
 ### Association
-belongs_to :user
-belongs_to :category
-has_many :item_images
-</br>
+belongs_to :user</br>
+belongs_to :category</br>
+has_many :item_images</br>
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -46,8 +44,7 @@ has_many :item_images
 |phone|string||
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-has_one :user
-</br>
+has_one :user</br>
 
 ## cardテーブル
 |Column|Type|Options|
@@ -56,8 +53,7 @@ has_one :user
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ### Association
-has_one :user
-</br>
+has_one :user</br>
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -65,8 +61,7 @@ has_one :user
 |name|string|null: false|
 |ancestry|string||
 ### Association
-has_many :items
-</br>
+has_many :items</br>
 
 ## item_imagesテーブル
 |Column|Type|Options|
