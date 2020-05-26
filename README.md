@@ -1,4 +1,5 @@
-image_tag "ERD.png"
+##ER図
+![ER図](ERD.png "ER図")
 
 ## usersテーブル
 |Column|Type|Options|
