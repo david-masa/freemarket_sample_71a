@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'newreg#index'
+  root to:'posts#index'
 end
