@@ -1,8 +1,5 @@
-README
-
-
 ##ER図
-![FURIMA DB new](https://user-images.githubusercontent.com/60571920/82986073-2225d300-a030-11ea-9523-5275f779eeb0.png)
+![FURIMA DB NEW](https://user-images.githubusercontent.com/60571920/82986281-8b0d4b00-a030-11ea-9205-fc88298dd778.png)
 
 ## usersテーブル
 |Column|Type|Options|
