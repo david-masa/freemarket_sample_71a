@@ -72,4 +72,4 @@ has_many :items</br>
 |image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
-belong_to :item
+belongs_to :item
