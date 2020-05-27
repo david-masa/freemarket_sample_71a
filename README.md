@@ -20,7 +20,7 @@ has_many :items</br>
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item-name|string|null: false|
+|name|string|null: false|
 |detail|text|null: false|
 |price|integer|null: false|
 |category_id|reference|null: false, foreign_key: true|
@@ -47,7 +47,7 @@ has_many :item_images</br>
 |phone|string||
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-has_one :user</br>
+belongs_to :user</br>
 
 ## cardテーブル
 |Column|Type|Options|
@@ -56,7 +56,7 @@ has_one :user</br>
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ### Association
-has_one :user</br>
+belongs_to :user</br>
 
 ## categoriesテーブル
 |Column|Type|Options|
