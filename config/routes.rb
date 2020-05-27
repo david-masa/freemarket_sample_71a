@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
+  # get 'edit/index'
+  # root to: 'posts#index'
+  root "edit#index"
 end
