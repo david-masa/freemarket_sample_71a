@@ -67,4 +67,5 @@ group :production do
 end
 
 gem "font-awesome-sass"
+gem 'carrierwave'
 gem 'fog-aws'
