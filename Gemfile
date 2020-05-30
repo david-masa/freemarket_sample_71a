@@ -67,3 +67,4 @@ group :production do
 end
 
 gem "font-awesome-sass"
+gem 'fog-aws'
