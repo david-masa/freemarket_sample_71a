@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :log, only: :index
 
+  resources :edit, only: :index
 
 
 end
