@@ -68,3 +68,4 @@ end
 
 gem "font-awesome-sass"
 gem 'fog-aws'
+gem 'carrierwave'
