@@ -749,10 +749,10 @@ legend {
   margin: 0 50px 0;
   position: relative;
 }
- /* .img {
+  .img {
    width: 300;
    height: 300;
- } */
+  }
 /* line 307, /Users/macuser/freemarket_sample_71a/app/assets/stylesheets/top.scss */
 .contents__box_two_image_center_two {
   height: 50px;
