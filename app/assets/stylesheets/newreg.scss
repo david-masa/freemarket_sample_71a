@@ -30,80 +30,123 @@
 }
 }
 
-.r-sigle-name {
+.new_user{
   text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  &_family {
-  &_register {
-  width:  160px;
-  height: 50px;
-  text-align: center;
-  border: solid 1px;
-  margin-right: 20px;
-  }
-  }
 }
 
-.r-sigle-name_first_register {
-  width:  160px;
-  height: 50px;
-  text-align: center;
-  border: solid 1px; 
+
+
+
+
+
+
+
+
+
+.actions{
+text-align: center;
 }
-
-.r-sigle-birth {
-  text-align: center;
-  width: 100%;  
-  &_register {
-  width:  340px;
-  height: 50px;
-  text-align: left;
-  padding-left: 130px;
-  border: solid 1px; 
-  }
-}
-
-.r-sigle-tel {
-  text-align: center;
-  width: 100%;  
-  &_register {
-  width:  340px;
-  height: 50px;
-  text-align: center;
-  border: solid 1px; 
-  }
-}
-
-.r-sigle-gender{
-  text-align: left;
-  width: 100%; 
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  }
-
-
-.r-sigle-newregister{
-  text-align: center; 
-  width:  100%;
-  &_btn {
-  width:  340px;
-  height: 50px;
-  text-align: center;
-  border: solid 1px;
-  background-color:#3ccace; 
-}  
-}
-
-.input {
-  display: inline;
-  margin-left: 30px;
-}
-
-label {
+  a{
   display: block;
+  text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .r-sigle-name {
+//   text-align: center;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   &_family {
+//   &_register {
+//   width:  160px;
+//   height: 50px;
+//   text-align: center;
+//   border: solid 1px;
+//   margin-right: 20px;
+//   }
+//   }
+// }
+
+// .r-sigle-name_first_register {
+//   width:  160px;
+//   height: 50px;
+//   text-align: center;
+//   border: solid 1px; 
+// }
+
+// .r-sigle-birth {
+//   text-align: center;
+//   width: 100%;  
+//   &_register {
+//   width:  340px;
+//   height: 50px;
+//   text-align: left;
+//   padding-left: 130px;
+//   border: solid 1px; 
+//   }
+// }
+
+// .r-sigle-tel {
+//   text-align: center;
+//   width: 100%;  
+//   &_register {
+//   width:  340px;
+//   height: 50px;
+//   text-align: center;
+//   border: solid 1px; 
+//   }
+// }
+
+// .r-sigle-gender{
+//   text-align: left;
+//   width: 100%; 
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   margin-left: 20px;
+//   }
+
+
+// .r-sigle-newregister{
+//   text-align: center; 
+//   width:  100%;
+//   &_btn {
+//   width:  340px;
+//   height: 50px;
+//   text-align: center;
+//   border: solid 1px;
+//   background-color:#3ccace; 
+// }  
+// }
+
+// .input {
+//   display: inline;
+//   margin-left: 30px;
+// }
+
+// label {
+//   display: block;
+// }
