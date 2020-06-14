@@ -1165,7 +1165,7 @@ legend {
 
 /* line 673, /Users/macuser/freemarket_sample_71a/app/assets/stylesheets/top.scss */
 .appBanner {
-  background-image: url(material/pict/bg-appBanner-pict.jpg);
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   padding: 60px 40px;
   position: relative;
   background-size: cover;
