@@ -1,6 +1,6 @@
 .n__container
   .n__logo
-    = image_tag('/assets/material/logo/logo.png', :width => '170', :height => '60') 
+    = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path 
   .n__form__container
     %ul
       .n__image__container
@@ -10,7 +10,7 @@
           .prev-content
           .label-content
             %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
-            %pre.label-box__text-visible クリックしてファイルをアップロード
+              %pre.label-box__text-visible クリックしてファイルをアップロード
           .hidden-content
             .hidden-field
               %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
@@ -58,5 +58,5 @@
         %p.message 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
   .n__end__logo__container
     .n__end__logo__container__end__logo
-      = image_tag('/assets/material/logo/logo.png', :width => '170', :height => '60') 
+      = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path
       %p ©️FURIMA.inc 

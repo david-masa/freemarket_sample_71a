@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "item#index"
+  root "edit#index"
 end
