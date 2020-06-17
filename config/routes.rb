@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :edit, only: :index
 
-
+  root 'products#index'
+  resources :products, except: :show
 end
