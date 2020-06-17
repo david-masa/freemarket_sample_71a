@@ -4,7 +4,7 @@
       %h1.icon
         %span.image
           = link_to root_path do
-            = image_tag "/assets/material/logo/logo.png", class: "image-logo"
+            = image_tag "material/logo/logo.png", class: "image-logo"
         .searchBox
           %form{"accept-charset" => "UTF-8", action: "#", method: "get"}
             %input{name: "utf8", type: "hidden", value: "✓"}/
@@ -23,9 +23,9 @@
             %ul.brandsPulldown.displayNone
         %ul.listsRight
           %li.listsRight__item.listsRight__item--login
-            = link_to "ログイン", "#"
+            = link_to "ログイン", log_index_path
           %li.listsRight__item.listsRight__item--new
-            = link_to "新機会員登録", "#"
+            = link_to "新規会員登録", newreg_index_path
 .contents
   %ul.contents__box
     %li.contents__box_one
@@ -38,17 +38,17 @@
           .inner__icon
             %span.image
               = link_to "#" do
-                = image_tag "/assets/badge/appstore.png", class: "aBtn"
+                = image_tag "badge/appstore.png", class: "aBtn"
             %span.image
               = link_to "#" do
-                = image_tag "/assets/badge/googleplay.png", class: "gBtn"
+                = image_tag "badge/googleplay.png", class: "gBtn"
     %li.contents__box_two
       .contents__box_two_title
         %h2.contents__box_two_title_feature
           FURIMAが選ばれる3つの理由
       %ul.contents__box_two_image
         %li.contents__box_two_image_left
-          = image_tag "/assets/material/pict/pict-reason-01.jpg", size: '300x300'
+          = image_tag "material/pict/pict-reason-01.jpg", size: '300x300'
           %p.contents__box_two_image_left_one
             1
           .contents__box_two_image_left_article
@@ -58,7 +58,7 @@
             スマホで入力するだけで簡単に出品できる！
 
         %li.contents__box_two_image_center
-          = image_tag "/assets/material/pict/pict-reason-02.jpg", size: '300x300'
+          = image_tag "material/pict/pict-reason-02.jpg", size: '300x300'
           %p.contents__box_two_image_center_two
             2
           .contents__box_two_image_center_article
@@ -68,7 +68,7 @@
             めんどくさい入力は必要なく、検索も購入もスムーズ！
 
         %li.contents__box_two_image_right
-          = image_tag "/assets/material/pict/pict-reason-03.jpg", size: '300x300'
+          = image_tag "material/pict/pict-reason-03.jpg", size: '300x300'
           %p.contents__box_two_image_right_three
             3
           .contents__box_two_image_right_article
@@ -91,29 +91,29 @@
           .inner__icon
             %span.image
               = link_to "#" do
-                = image_tag "/assets/badge/appstore.png", class: "aBtn"
+                = image_tag "badge/appstore.png", class: "aBtn"
             %span.image
               = link_to "#" do
-                = image_tag "/assets/badge/googleplay.png", class: "gBtn"
+                = image_tag "badge/googleplay.png", class: "gBtn"
     %li.contents__box_four
       .contents__box_four_title
         %h2.contents__box_four_title_feature
           FURIMAの特徴
       %ul.contents__box_four_image
         %li.contents__box_four_image_left
-          = image_tag "/assets/material/icon/icon-01.png", size: '220x340'
+          = image_tag "material/icon/icon-01.png", size: '220x340'
           .contents__box_four_image_left_article
             簡単に売り買いできる
           .contents__box_four_image_left_note
             スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
         %li.contents__box_four_image_center
-          = image_tag "/assets/material/icon/icon-03.png", size: '220x340'
+          = image_tag "material/icon/icon-03.png", size: '220x340'
           .contents__box_four_image_center_article
             売上金は即日振込みに対応
           .contents__box_four_image_center_note
             午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
         %li.contents__box_four_image_right
-          = image_tag "/assets/material/icon/icon-04.png", size: '220x340'
+          = image_tag "material/icon/icon-04.png", size: '220x340'
           .contents__box_four_image_right_article
             様々な支払いに対応
           .contents__box_four_image_right_note
@@ -129,8 +129,8 @@
     .contents__category_post
       .contents__category_post_box
         .contents__category_post_box_iamge
-          = link_to "#" do
-            = image_tag "/assets/product/product3.png",size: "220x150"
+          = link_to posts_path do
+            = image_tag "product/product3.png",size: "220x150"
         .contents__category_post_box_article
           %lu.contents__category_post_box_article_detail
             %li
@@ -148,7 +148,7 @@
       .contents__category_post_box
         .contents__category_post_box_iamge
           = link_to "#" do
-            = image_tag "/assets/product/product2.png",size: "220x150"
+            = image_tag "product/product2.png",size: "220x150"
         .contents__category_post_box_article
           %lu.contents__category_post_box_article_detail
             %li
@@ -165,7 +165,7 @@
       .contents__category_post_box
         .contents__category_post_box_iamge
           = link_to "#" do
-            = image_tag "/assets/product/product1.png",size: "220x150"
+            = image_tag "product/product1.png",size: "220x150"
         .contents__category_post_box_article
           %lu.contents__category_post_box_article_detail
             %li
@@ -193,7 +193,7 @@
       .contents__brand_post_box
         .contents__brand_post_box_iamge
           = link_to "#" do
-            = image_tag "/assets/product/product3.png",size: "220x150"
+            = image_tag "product/product3.png",size: "220x150"
         .contents__brand_post_box_article
           %lu.contents__brand_post_box_article_detail
             %li
@@ -211,7 +211,7 @@
       .contents__brand_post_box
         .contents__brand_post_box_iamge
           = link_to "#" do
-            = image_tag "/assets/product/product2.png",size: "220x150"
+            = image_tag "product/product2.png",size: "220x150"
         .contents__brand_post_box_article
           %lu.contents__brand_post_box_article_detail
             %li
@@ -228,7 +228,7 @@
       .contents__brand_post_box
         .contents__brand_post_box_iamge
           = link_to "#" do
-            = image_tag "/assets/product/product1.png",size: "220x150"
+            = image_tag "product/product1.png",size: "220x150"
         .contents__brand_post_box_article
           %lu.contents__brand_post_box_article_detail
             %li
@@ -251,10 +251,10 @@
       .inner__iconn
         %span.image
           = link_to "#" do
-            = image_tag "/assets/badge/appstore.png", class: "aBtn"
+            = image_tag "badge/appstore.png", class: "aBtn"
         %span.image
           = link_to "#" do
-            = image_tag "/assets/badge/googleplay.png", class: "gBtn"
+            = image_tag "badge/googleplay.png", class: "gBtn"
   .footer
     %ul.contents_list
       %li.content
@@ -286,11 +286,12 @@
             = link_to "お知らせ", "#"
     .footer__logo
       %span.image
-        = image_tag "/assets/material/logo/logo-white.png", class: "footerLogo"
+        = image_tag "material/logo/logo-white.png", class: "footerLogo"
     %p © FURIMA
 
 .footer_camera
-  .footer_camera_btn
-    = link_to '出品', "#"
+  %li.footer_camera_btn
+    = link_to '出品', edit_index_path
+
   %span
-    = image_tag "/assets/material/icon/icon_camera.png", class: "icon-camera"
+    = image_tag "material/icon/icon_camera.png", class: "icon-camera"

@@ -1,0 +1,43 @@
+.login-contena
+  .header
+    .header-logo
+      .img
+        =image_tag "material/logo/logo.png"
+      
+  .login-contents
+    .login-panel
+      .new-account
+        .no-account-box 
+          %p.txt アカウントをお持ちでない方はこちら
+          .new-account 
+            = link_to newreg_index_path do
+              ="新規会員登録"
+      .login-account
+        .list-box
+          .facebook-login
+            = link_to "#" do
+              ="facebookでログイン"
+              =icon('fab', 'facebook-square', class: 'icon')
+          .google-login
+            = link_to "#" do
+              ="googleでログイン"
+              =icon('fab', 'google', class: 'icon')
+      .address-login-form 
+
+        .address-login-form-inner
+          %form{:action => "#", :method => "post"}
+            %labe
+              %input{:name => "name", :type => "text", :class =>"mailadress", :placeholder =>"メールアドレス"}/
+          %form{:action => "#", :method => "post"}
+            %labe    
+              %input{:name => "name", :type => "text", :placeholer =>"パスワード", :class =>"password", :placeholder =>"パスワード"}/
+          .under-login-box
+            = link_to "#" do
+              ="ログイン"
+
+  .logo-footer
+    .logo-footer__contents
+      プライバシー　　FURIMA規約　　特定商取引に関する表記
+      .logo-footer__contents_logo
+        .img
+        =image_tag "material/logo/logo.png", :size => '70x50'
