@@ -14,13 +14,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  
+
   # POST /resource
   # def create
   #   super
   # end
 
+  # def user_params
+  #   params.permit(:user).permit(year = params["year(1i)"] + params["year(2i)"] + params["year(3i)"])
+  # end
+
+
+
+  def user_params
+    year = params["user"]["year(1i)"]
+    month =  params["user"]["year(2i)"] 
+    day =  params["user"]["year(3i)"]
+    params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :telnum, :gender).merge(year: year,month: month, day: day)
+  end
+
+  
+
+
   def create
-    @user = User.new(sign_up_params)
+    @user = User.new(user_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return

@@ -28,7 +28,7 @@
             = f.label :都道府県
             %span 必須
             %br/
-            = f.text_field :city, autofocus: true, class: "input-tag"
+            = f.select :city, Address.cities.keys, {}, {class: 'input-tag'}
           .field
             = f.label :市町村
             %span 必須
@@ -41,13 +41,13 @@
             = f.text_field :block, autofocus: true, class: "input-tag",placeholder: "例 青山1-1-1"
           .field
             = f.label :マンション名
-            %span 任意
-            %br/
+            %div 任意
+            -# %br/
             = f.text_field :building, autofocus: true, class: "input-tag",placeholder: "例 柳ビル103"
           .field
             = f.label :連絡先
-            %span任意
-            %br/
+            %div 任意
+            -# %br/
             = f.text_field :number, autofocus: true, class: "input-tag",placeholder: "ハイフン無し 数字のみ入力"
 
         .actions
