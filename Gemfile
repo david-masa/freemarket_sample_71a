@@ -71,3 +71,4 @@ gem 'fog-aws'
 
 gem 'devise'
 gem 'pry-rails'
+gem 'carrierwave'
