@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_050434) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "postal_code", null: false
-    t.string "city", null: false
+    t.integer "city", default: 0, null: false
     t.string "local", null: false
     t.string "block", null: false
     t.string "building"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_050434) do
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.date "birthday", null: false
+    t.string "relnum", null: false
+    t.string "gender", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -44,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_050434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "telnum"
-    t.integer "gender"
     t.integer "year"
     t.integer "month"
     t.integer "day"
