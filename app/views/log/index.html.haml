@@ -2,7 +2,7 @@
   .header
     .header-logo
       .img
-        =image_tag "/assets/material/logo/logo.png"
+        =image_tag "material/logo/logo.png"
       
   .login-contents
     .login-panel
@@ -10,7 +10,7 @@
         .no-account-box 
           %p.txt アカウントをお持ちでない方はこちら
           .new-account 
-            = link_to "#" do
+            = link_to newreg_index_path do
               ="新規会員登録"
       .login-account
         .list-box
@@ -40,4 +40,4 @@
       プライバシー　　FURIMA規約　　特定商取引に関する表記
       .logo-footer__contents_logo
         .img
-        =image_tag "/assets/material/logo/logo.png", :size => '70x50'
+        =image_tag "material/logo/logo.png", :size => '70x50'

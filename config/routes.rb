@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'users#index'
 
   resources :posts, only: :index
@@ -16,5 +17,4 @@ Rails.application.routes.draw do
   resources :logout, only: :index
 
   resources :cards, only: [:index, :new]
-
 end
