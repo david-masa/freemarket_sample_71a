@@ -69,6 +69,8 @@ end
 gem "font-awesome-sass"
 gem 'fog-aws'
 
+
 gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
+
