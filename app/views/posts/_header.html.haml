@@ -4,9 +4,9 @@
       %h1.icon
         %span.image
           = link_to root_path do
-            = image_tag "/assets/material/logo/logo.png", class: "image-logo"
+            = image_tag "material/logo/logo.png", class: "image-logo"
         .searchBox
-          %form{acceptcharset:"UTF-8", action: "#", method: "get"}
+          %form{"accept-charset" => "UTF-8", action: "#", method: "get"}
             %input{name: "utf8", type: "hidden", value: "✓"}/
             %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
             %button{type: "submit"}
@@ -25,4 +25,4 @@
           %li.listsRight__item.listsRight__item--login
             = link_to "ログイン", "#"
           %li.listsRight__item.listsRight__item--new
-            = link_to "新機会員登録", "#"
+            = link_to "新規会員登録", "#"
