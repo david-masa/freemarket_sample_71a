@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'edit#index'
+  root 'items#index'
 
   resources :posts, only: :index
 
@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   resources :log, only: :index
 
-  resources :edit, only: :index
+  resources :items, only: [:index, :new] 
 
-  root 'products#index'
-  resources :products, except: :show
+  
 end
