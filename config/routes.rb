@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :log, only: :index
 
 
-  resources :items, only: [:index, :new]
+  resources :items, only: [:index, :new, :create]
 end

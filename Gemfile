@@ -44,6 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -68,11 +70,15 @@ gem 'haml-rails'
 gem 'kaminari'
 gem 'active_hash'
 gem 'ancestry'
+gem 'devise'
+gem 'pry-rails'
+gem 'pry-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
 
-gem 'devise'
-gem 'pry-rails'
+
+
+
 
