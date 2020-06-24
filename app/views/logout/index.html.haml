@@ -1,0 +1,8 @@
+= render partial: 'layouts/header', locals: { header: @header }
+.out__wrapper
+  = render "users/side-bar"
+  .out__wrapper__main-bar
+    .out__wrapper__main-bar__contents
+      %button{type: "submit", class:'logout-btn'}
+        ログアウト
+= render partial: 'top/footer', locals: { footer: @footer }
