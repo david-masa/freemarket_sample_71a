@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  root 'items#index'
+
 
   resources :posts, only: :index
 
@@ -7,13 +8,6 @@ Rails.application.routes.draw do
 
   resources :log, only: :index
 
-  resources :edit, only: :index
 
-  resources :purchase, only: :index
-
-  resources :users, only: :index
-
-  resources :logout, only: :index
-
-  resources :cards, only: [:index, :new]
+  resources :items, only: [:index, :new]
 end
