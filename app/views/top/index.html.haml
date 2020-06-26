@@ -25,7 +25,11 @@
           %li.listsRight__item.listsRight__item--login
             = link_to "ログイン", log_index_path
           %li.listsRight__item.listsRight__item--new
-            -# = link_to "新規会員登録", new_user_registration_path
+            = link_to "新規会員登録", new_user_registration_path
+          %li.listsRight__item.listsRight__item--new
+            = link_to "マイページ", users_path
+          %li.listsRight__item.listsRight__item--new
+            = link_to "商品購入確認", purchase_index_path
 .contents
   %ul.contents__box
     %li.contents__box_one
