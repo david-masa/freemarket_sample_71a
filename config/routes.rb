@@ -8,10 +8,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
   root 'top#index'
 
   resources :posts, only: :index
