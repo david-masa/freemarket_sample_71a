@@ -4,7 +4,7 @@ class CreateImages < ActiveRecord::Migration[5.2]
 
       t.timestamps
       t.string :src
-      t.references :product, foreign_key: true
+      t.references :item, foreign_key: true
     end
   end
 end
