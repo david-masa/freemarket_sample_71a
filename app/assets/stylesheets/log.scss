@@ -1,149 +1,138 @@
-* {
-  box-sizing: border-box;
-}
-
-.login-contena{
+.log-in{
   background-color: whitesmoke;
-  height:100vh;
-  width:100%;
-  margin: 0 auto;
-  overflow: scroll;
-  overflow: hidden visible;
-  font-size: 13px;
-
-  .header{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .header-logo{
-      height: 50px;
-      width: 200px;
-      img{
-        height: 50px;
-        width: 100%;
+  padding: 0 0 100px;
+  &_header{
+    height: 128px;
+    text-align: center;
+    &-container{
+      margin: 40px 0 0;
+      display: inline-block;
+      &_link{
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        display: inline-block;
       }
     }
   }
-
-  .login-contents{
-    display: flex;
-    justify-content: center;
-
-    .login-panel{
-      background-color:white;
-      height: 500px;
-      width: 450px;
-
-      .new-account{
-        height: 140px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom: solid 0.5px lightgray;
-        .no-account-box {
-          text-align: center;
-          .txt{
-            font-size: small;
-          }
-          .new-account{
-            height: 40px;
-            width: 300px;
-            background-color: #0099e8;
-            margin: 4px 0;
-            a{
-              text-decoration: none;
-              color: white;
-            }
-          }
-        }
-      }
-      .login-account{
-        height: 140px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  &_main{
+    display: block;
+    &_panel{
+      width: 456px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      &-no-account{
+        padding: 40px 64px;
         text-align: center;
-        line-height: 40px;
-        margin-bottom: 15px;
-
-        .list-box{
-          text-align: center;
-
-          .facebook-login{
-            height: 40px;
-            width: 300px;
-            background-color: #385185;
-            line-height: 40px;
-            a{
-              text-decoration: none;
-              color: white;
+        &_message{
+          font-size: 14px;
+        }
+        &_link{
+          display: block;
+          margin: 8px 0 0;
+          border: 1px solid #0099e8;
+          background: #0099e8;
+          color: #fff !important;
+          line-height: 40px;
+          text-decoration: none;
+        }
+      }
+      &-sns{
+        padding: 32px 64px;
+        border-top: 1px solid #eee;
+        &_btn_facebook{
+          background: #385185;
+          color: #fff;
+          position: relative;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          padding-left: 48px;
+          &_icon{
+            display: inline-block;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            position: absolute;
+            left: 0px;
+            font-size: 26px;
+            top: 12px;
+            left: 12px;
+          }
+        }
+        &_btn_google{
+          margin: 16px 0 0;
+          background: #fff;
+          border: #979797 solid 1px;
+          color: #333;
+          position: relative;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          padding-left: 48px;
+          &_icon{
+            display: inline-block;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            position: absolute;
+            left: 0px;
+            font-size: 26px;
+            top: 12px;
+            left: 12px;
+            color: green;
+          }
+        }
+      }
+      &_inner{
+        padding: 24px 0 32px;
+        .new_user{
+          .log-in_main_panel_inner_form-group_email{
+            padding: 24px 64px 32px;
+            &_form{
+              width: 100%;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
             }
-
+          }
+          .log-in_main_panel_inner_form-group_password{
+            padding: 0 64px 0;
+            &_form{
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              width: 100%;
             }
-          
-          .google-login{
-            height: 40px;
-            width: 300px;
-            border:solid 1px gray;
-            margin-top: 16px;
-            line-height: 40px;
-            a{
-              text-decoration: none;
-              color: black;
+          }
+          .log-in_main_panel_inner_form-group_submit{
+            margin: 24px 0 0;
+            padding: 0 64px 0;
+            &_btn{
+              background: #3ccAca;
+              border: 1px solid #3ccAca;
+              color: #fff;
+              cursor: pointer;
+              text-align: center;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
             }
           }
         }
       }
-    }    
-  }
-
-}
-
-.address-login-form-inner {
-  text-align: center;
-}
-
-.mailadress {
-  width: 300px;
-  height: 40px;
-  text-align: center;
-  margin: auto;
-  border:solid 1px gray;
-  margin-bottom: 15px;
-}
-
-.password {
-  width: 300px;
-  height: 40px;
-  text-align: center;
-  margin: auto;
-  border:solid 1px gray;
-  margin-bottom: 15px;
-}
-
-.under-login-box{
-  width: 300px;
-  height: 40px;
-  background-color: red;
-  text-align: center;
-  margin: auto;
-  border:solid 1px gray;
-  line-height: 40px;
-  a{
-    text-decoration: none;
-}
-}
-
-.logo-footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  &__contents {
-  text-align: center; 
+    }
   }
 }
