@@ -72,7 +72,7 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'devise'
 gem 'pry-rails'
-gem 'pry-rails'
+
 
 group :production do
   gem 'unicorn', '5.4.1'
