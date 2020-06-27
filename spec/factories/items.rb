@@ -9,7 +9,7 @@ FactoryBot.define do
     postage       {"送料込み"}
     category_id   {1}
     brand_id      {1}
-    prefecture_id   {1}
+    shipping_area_id   {1}
     buyer_id        {nil}
     condition_id    {1}
 
