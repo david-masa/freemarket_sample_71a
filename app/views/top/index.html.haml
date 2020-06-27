@@ -23,9 +23,13 @@
             %ul.brandsPulldown.displayNone
         %ul.listsRight
           %li.listsRight__item.listsRight__item--login
-            = link_to "ログイン", log_index_path
+            = link_to "ログイン", new_user_session_path
           %li.listsRight__item.listsRight__item--new
             = link_to "新規会員登録", new_user_registration_path
+          %li.listsRight__item.listsRight__item--new
+            = link_to "マイページ", users_path
+          %li.listsRight__item.listsRight__item--new
+            = link_to "商品購入確認", purchase_index_path
 .contents
   %ul.contents__box
     %li.contents__box_one
@@ -127,122 +131,28 @@
           = link_to "#" do
             新規投稿商品
     .contents__category_post
-      .contents__category_post_box
-        .contents__category_post_box_iamge
-          = link_to posts_path do
-            = image_tag "product/product3.png",size: "220x150"
-        .contents__category_post_box_article
-          %lu.contents__category_post_box_article_detail
-            %li
-              %h3 product3
-            %li 
-              30000円
-            %li.contents__category_post_box_article_detail_tax
-              (税込)
-          .contents__category_post_box_article_star
-            .contents__category_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__category_post_box_article_star_namber
-              0
-      
-      .contents__category_post_box
-        .contents__category_post_box_iamge
-          = link_to "#" do
-            = image_tag "product/product2.png",size: "220x150"
-        .contents__category_post_box_article
-          %lu.contents__category_post_box_article_detail
-            %li
-              %h3 product2
-            %li 
-              20000円
-            %li.contents__category_post_box_article_detail_tax
-              (税込)
-          .contents__category_post_box_article_star
-            .contents__category_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__category_post_box_article_star_namber
-              0
-      .contents__category_post_box
-        .contents__category_post_box_iamge
-          = link_to "#" do
-            = image_tag "product/product1.png",size: "220x150"
-        .contents__category_post_box_article
-          %lu.contents__category_post_box_article_detail
-            %li
-              %h3 product1
-            %li 
-              10000円
-            %li.contents__category_post_box_article_detail_tax
-              (税込)
-          .contents__category_post_box_article_star
-            .contents__category_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__category_post_box_article_star_namber
-              0
-
-
-  .contents__brand
-    .contents__brand_box
-      .contents__brand_box_section
-        %h2.contents__brand_box_section_title
-          ピックアップブランド
-        .contents__brand_box_section_link
-          = link_to "#" do
-            アーカイバ
-    .contents__brand_post
-      .contents__brand_post_box
-        .contents__brand_post_box_iamge
-          = link_to "#" do
-            = image_tag "product/product3.png",size: "220x150"
-        .contents__brand_post_box_article
-          %lu.contents__brand_post_box_article_detail
-            %li
-              %h3 product3
-            %li 
-              30000円
-            %li.contents__brand_post_box_article_detail_tax
-              (税込)
-          .contents__brand_post_box_article_star
-            .contents__brand_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__brand_post_box_article_star_namber
-              0
-      
-      .contents__brand_post_box
-        .contents__brand_post_box_iamge
-          = link_to "#" do
-            = image_tag "product/product2.png",size: "220x150"
-        .contents__brand_post_box_article
-          %lu.contents__brand_post_box_article_detail
-            %li
-              %h3 product2
-            %li 
-              20000円
-            %li.contents__brand_post_box_article_detail_tax
-              (税込)
-          .contents__brand_post_box_article_star
-            .contents__brand_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__brand_post_box_article_star_namber
-              0
-      .contents__brand_post_box
-        .contents__brand_post_box_iamge
-          = link_to "#" do
-            = image_tag "product/product1.png",size: "220x150"
-        .contents__brand_post_box_article
-          %lu.contents__brand_post_box_article_detail
-            %li
-              %h3 product1
-            %li 
-              10000円
-            %li.contents__brand_post_box_article_detail_tax
-              (税込)
-          .contents__brand_post_box_article_star
-            .contents__brand_post_box_article_star_icon
-              = icon('fa', 'star')
-            .contents__brand_post_box_article_star_namber
-              0
-
+      - @items.each do |p|
+        = link_to items_path(p.id) do
+          .contents__category_post_box
+            -# - if p.buyer_id
+              .contents__category_post_box_souldout SOLDOUT
+            .contents__category_post_box_iamge
+              = image_tag "#{p.images.first.src}"
+            .contents__category_post_box_article
+              %lu.contents__category_post_box_article_detail
+                %li
+                  %h3 
+                    = p.name
+                %li 
+                  = p.price
+                  円
+                %li.contents__category_post_box_article_detail_tax
+                  (税込)
+              .contents__category_post_box_article_star
+                .contents__category_post_box_article_star_icon
+                  = icon('fa', 'star')
+                .contents__category_post_box_article_star_namber
+                  
 
   %aside.appBanner
     .inner
@@ -291,7 +201,7 @@
 
 .footer_camera
   %li.footer_camera_btn
-    = link_to '出品', edit_index_path
+    = link_to '出品', new_item_path
 
   %span
     = image_tag "material/icon/icon_camera.png", class: "icon-camera"

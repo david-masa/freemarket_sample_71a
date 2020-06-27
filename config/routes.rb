@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'users/new_addresses', to: 'users/registrations#new_address'
+    
+    post 'addresses', to: 'users/registrations#create_address'
+  end
 
+
+  root 'top#index'
 
   resources :posts, only: :index
 
@@ -9,5 +18,14 @@ Rails.application.routes.draw do
   resources :log, only: :index
 
 
-  resources :items, only: [:index, :new, :create]
+  resources :items, only: [:index, :new]
+
+  resources :purchase, only: :index
+
+  resources :users, only: :index
+
+  resources :logout, only: :index
+
+  resources :cards, only: [:index, :new]
+
 end
