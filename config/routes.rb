@@ -18,4 +18,12 @@ Rails.application.routes.draw do
   resources :log, only: :index
 
   resources :items, only: [:index, :new]
+
+  resources :purchase, only: :index
+
+  resources :users, only: :index
+
+  resources :logout, only: :index
+
+  resources :cards, only: [:index, :new]
 end
