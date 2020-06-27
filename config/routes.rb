@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :log, only: :index
 
+
   resources :items, only: [:index, :new]
 
   resources :purchase, only: :index
@@ -26,4 +27,6 @@ Rails.application.routes.draw do
   resources :logout, only: :index
 
   resources :cards, only: [:index, :new]
+
+  # テスト
 end
