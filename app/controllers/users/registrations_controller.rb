@@ -27,15 +27,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
-  def user_params
-    year = params["user"]["year(1i)"]
-    month =  params["user"]["year(2i)"] 
-    day =  params["user"]["year(3i)"]
-    params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :telnum, :gender).merge(year: year,month: month, day: day)
-  end
-
-  
-
 
   def create
     @user = User.new(user_params)
@@ -53,8 +44,61 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   # @address = Address.new
   # end
   def create_address
-    
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to items_path
   end
+  
+
+  def edit
+  end
+
+
+  # def update
+  #   @user.update(update_params)
+  #   unless @user.update(update_params)
+  #     redirect_to edit_registrations_path(@user.id)
+  #   end
+  #   sign_in(:user, @user)
+  # end
+
+  def update
+    @address = @user.address
+    @address.update(update_params)
+    unless @address.update(update_params)
+      redirect_to edit_registrations_path(@address.id)
+    end
+    sign_in(:user, @user)
+  end
+
+
+  private
+  def user_params
+    year = params["user"]["year(1i)"]
+    month =  params["user"]["year(2i)"] 
+    day =  params["user"]["year(3i)"]
+    params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :telnum, :gender).merge(year: year,month: month, day: day)
+  end
+
+
+  def address_params
+    params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :city, :local, :block, :building, :number)
+  end
+  # def update_params
+  #   year = params["user"]["year(1i)"]
+  #   month =  params["user"]["year(2i)"] 
+  #   day =  params["user"]["year(3i)"]
+  #   params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :telnum, :gender, :pasword_confimation, :year(1i), :year(2i), :year(3i))
+  # end
+  
   # GET /resource/edit
   # def edit
   #   super
