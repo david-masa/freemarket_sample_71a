@@ -62,13 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
-  # def update
-  #   @user.update(update_params)
-  #   unless @user.update(update_params)
-  #     redirect_to edit_registrations_path(@user.id)
-  #   end
-  #   sign_in(:user, @user)
-  # end
 
   def update
     @address = @user.address
