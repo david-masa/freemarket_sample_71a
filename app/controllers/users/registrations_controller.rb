@@ -51,16 +51,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    
     if @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     redirect_to items_path
-    
     else
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
-  
   end
   
 
