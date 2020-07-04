@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   end
 
 
-  root 'items#index'
 
+  root 'items#index'
+  
   resources :posts, only: :index
 
   resources :newreg, only: :index
