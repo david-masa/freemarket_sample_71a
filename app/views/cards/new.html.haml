@@ -7,7 +7,7 @@
       = form_tag "#" do
         .p-card_input_form_container
           .p-card_input_form_container_group
-            %label.p-card_input_form_container_group_label 
+            %p.p-card_input_form_container_group_label
               カード番号
               %span.p-card_input_form_container_group_label_span 必須
             = text_field_tag "number", "", class: "p-card_input_form_container_group_input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
@@ -27,7 +27,7 @@
               %li.p-card_input_form_container_group_ul_li
                 %img{:alt => "discover", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2482339763", :width => "32"}
           .p-card_input_form_container_group
-            %label.p-card_input_form_container_group_label 
+            %p.p-card_input_form_container_group_label 
               有効期限
               %span.p-card_input_form_container_group_label_span 必須
             .p-card_input_form_container_group_wrap
@@ -62,7 +62,7 @@
                   %option{value: "2029"}29
                 %span 年
           .p-card_input_form_container_group
-            %label.p-card_input_form_container_group_label
+            %p.p-card_input_form_container_group_label
               セキュリティーコード
               %span.p-card_input_form_container_group_label_span 必須
             = text_field_tag "cvc", "", class: "p-card_input_form_container_group_input", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
