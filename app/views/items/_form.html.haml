@@ -30,6 +30,7 @@
           %p.message サイズ（任意)
           = f.text_field :size, class: "select-box",  placeholder: "（例）S, M, L"
           %p.message カテゴリー（必須)
+          = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
           .sell-category-box
           = f.text_field :name, class: "sell__item-category"
           %p.message ブランド（必須）

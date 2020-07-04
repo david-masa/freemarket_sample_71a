@@ -221,6 +221,7 @@ appliance_smartphone_camera_9 = appliance_smartphone_camera.children.create(name
 appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
 appliance_smartphone_camera_10.children.create([{name: "その他"}])
+
 # スポーツ・レジャー
 sport_leisure = Category.create(name: "スポーツ・レジャー")
 sport_leisure_1 = sport_leisure.children.create(name: "ゴルフ")
@@ -287,7 +288,6 @@ ticket_7 = ticket.children.create(name: "優待券/割引券")
 ticket_7.children.create([{name: "ショッピング"},{name: "レストラン/食事券"},{name: "フード/ドリンク券"},{name: "宿泊券"},{name: "その他"}])
 ticket_8 = ticket.children.create(name: "その他")
 ticket_8.children.create([{name: "すべて"}])
-
 
 # 自動車・オートバイ
 car_motorcycle = Category.create(name: "自動車・オートバイ")
