@@ -58,6 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
+    end
   end
   
 
@@ -89,7 +90,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :city, :local, :block, :building, :number)
   end
   
-  
+
   # GET /resource/edit
   # def edit
   #   super
