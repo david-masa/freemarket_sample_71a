@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
 
-  root 'top#index'
+  root 'items#index'
 
   resources :posts, only: :index
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :log, only: :index
 
 
-  resources :items, only: [:index, :new]
+  resources :items, only: [:index, :new, :create]
 
   resources :purchase, only: :index
 

@@ -12,7 +12,6 @@ class Item < ApplicationRecord
   
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :condition
-  belongs_to_active_hash :brand
 
   def previous
     Item.where("id < ?", self.id).order("id DESC").first
