@@ -5,8 +5,10 @@ class Item < ApplicationRecord
   validates :price, :numericality => { :greater_than => 299 }
   validates :price, :numericality => { :less_than => 9999999  }
 
+  # 下記2行、今後ユーザー登録やカテゴリ機能との結びつきの実装を予想してコメントアウト状態にしています。
   # belongs_to :user
   # belongs_to :category
+  
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   
