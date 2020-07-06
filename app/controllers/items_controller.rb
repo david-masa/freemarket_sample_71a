@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.all.order("id ASC").limit(13)
+    # @parents = Category.where(ancestry: nil)
   
     def get_category_children
       @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children

@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :brand
       t.integer :condition_id, null: false
       # t.references :user, null: false, foreign_key: true
+      # t.references :category_id, null: false, foreign_key:{to_table: :categories} 
       t.timestamps
     end
   end
