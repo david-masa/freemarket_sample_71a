@@ -1,0 +1,38 @@
+= render partial: 'layouts/header', locals: { header: @header }
+.ui__wrapper
+  = render "side-bar"
+  .ui__wrapper__main-bar
+    .ui__wrapper__main-bar__contents
+      %h2.ui__wrapper__main-bar__contents__title 
+        #{@user.nickname}さんが出品した商品
+      .ui__wrapper__main-bar__contents-flex
+        - @items.each do |item|
+          = link_to item_path(item.id),class: "ui__wrapper__main-bar__contents__content__link" do
+            .e__middle__container__border
+              .e__middle__container__border__content
+                .e__middle__container__border__content__image
+                  = image_tag item.images[0].src.url
+                  -if item.buyer_id.present?
+                    .e__middle__container__border__content__image--triangle
+                    .e__middle__container__border__content__image__soldout
+                      SOLD
+                .e__middle__container__border__content__info
+                  .e__middle__container__border__content__info__name
+                    = item.name
+                  .e__middle__container__border__content__info__price
+                    ¥
+                    = item.price
+                    =icon('far','heart') do
+                      %span 100
+      
+= render partial: 'layouts/footer', locals: { footer: @footer }
+- if user_signed_in?
+  %a(href="/items/new")
+    .sellBtn
+      %span.sellBtn__text 出品する
+      = image_tag 'icon_camera.png', alt: '', height: '', width: '', class: 'sellBtn__icon'
+- else
+  %a(href="/users/sign_in")
+    .sellBtn
+      %span.sellBtn__text ログインして出品する
+      = image_tag 'icon_camera.png', alt: '', height: '', width: '', class: 'sellBtn__icon'
