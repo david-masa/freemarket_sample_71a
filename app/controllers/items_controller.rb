@@ -19,8 +19,7 @@ class ItemsController < ApplicationController
 
   def create
     # binding.pry
-    @item = Item.new(item_params)
-    
+    @item = Item.create!(item_params)
     if @item.save
       redirect_to items_path, notice: "出品しました"
     else
@@ -63,7 +62,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :detail, :brand_id, :price, :condition_id, :shipping_area_id, :user_id,)
+    params.require(:item).permit(:name, :detail, :brand, :category_id, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :costomer, images_attributes: [:src, :_destroy, :id])
   end
 
   def set_item
