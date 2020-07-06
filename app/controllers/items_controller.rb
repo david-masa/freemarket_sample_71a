@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    # binding.pry
     @item = Item.new
     @item.images.new
     # @parents = Category.where(ancestry: nil)
@@ -18,8 +19,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-  
-    @item = Item.create(item_params)
+    # binding.pry
+    @item = Item.create!(item_params)
     if @item.save
       redirect_to items_path, notice: "出品しました"
     else
@@ -62,7 +63,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :detail, :size, :brand_id, :price, :condition_id, :wait, :postage, :category_id, :prefecture_id, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)  
+    params.require(:item).permit(:name, :detail, :brand, :category_id, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :costomer, images_attributes: [:src, :_destroy, :id])
   end
 
   def set_item

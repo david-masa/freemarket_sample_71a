@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.integer "condition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "shipping_area_id"
+    t.integer "shipping_cost"
+    t.integer "shipping_days"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
