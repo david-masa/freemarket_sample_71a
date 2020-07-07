@@ -12,6 +12,11 @@
 |birthday|date|null: false|
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
+|telnum|integer |null: false|
+|gender|integer |null: false|
+|year|integer|null: :false|
+|month|integer|null: :false|
+|day|integer|null: :false|
 ### Association
 has_one :address</br>
 has_one :card</br>
@@ -70,6 +75,6 @@ has_many :items</br>
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 ### Association
 belongs_to :item
