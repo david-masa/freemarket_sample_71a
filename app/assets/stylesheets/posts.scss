@@ -35,6 +35,8 @@
 
 .d-itemBox {
   padding: 24px 200px 40px;
+  max-width: 1170px;
+  margin: auto;
   background-color: #ffffff;
   &__price {
     font-weight: bold;
@@ -88,9 +90,11 @@
   .d-itemDetail {
     font-size: 18px;
     margin-bottom: 30px;
+    
   }
 
   .d-table {
+    
     margin-bottom: 20px;
     font-size: 14px;
     table {

@@ -35,11 +35,8 @@ ActiveRecord::Schema.define(version: 2020_07_03_165145) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,8 +79,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_165145) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birthday", null: false
-    t.string "relnum", null: false
+    t.string "telnum", null: false
     t.string "gender", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_165145) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "telnum"
     t.integer "year"
     t.integer "month"
     t.integer "day"
@@ -100,5 +95,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_165145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
 end
