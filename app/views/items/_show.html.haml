@@ -1,0 +1,50 @@
+.d-header
+  = render partial: 'layouts/header', locals: { header: @header }
+
+.d-main
+  .d-showMain
+    .d-content
+      .d-itemBox
+        .d-itemBox__name
+          =@item.name
+        .d-itemBox__body          
+          %ul
+            %li
+              = image_tag @item.images[0].src.url, class:"firstImage"
+              -if @item.buyer_id.present?
+                .d-itemBox__body--triangle
+                .d-itemBox__body__soldout
+                  SOLD
+              %ul
+                - @item.images.each do |image|
+                  %li
+                    = image_tag image.src.url, :width => "75", :height => "75",class:"imageList"
+        .d-itemBox__price
+          ¥
+          =@item.price
+          .d-itemBox__price-detail
+            %span (税込)
+            %span 送料込み
+        .d-itemDetail
+          .noticeMsg
+            %p
+              = simple_format @item.description
+        .d-table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td.d-table--blue
+                  
+                  = link_to @item.user.nickname, "/users/#{@item.user_id}"
+                  
+                 
+              %tr
+                %th カテゴリー
+                %td.d-table--blue
+                  = link_to category_path(@item.category.id) do
+                    =@item.category.name
+              %tr
+                %th ブランド
+                %td 
+                  =@item.brand.name

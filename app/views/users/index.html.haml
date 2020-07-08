@@ -6,7 +6,7 @@
       %h2.ui__wrapper__main-bar__contents__title 
         さんが出品した商品
       .ui__wrapper__main-bar__contents-flex
-        -# - @items.each do |item|
+        - @items.each do |item|
           = link_to item_path(item.id),class: "ui__wrapper__main-bar__contents__content__link" do
             .e__middle__container__border
               .e__middle__container__border__content
@@ -24,14 +24,15 @@
                     = item.price
                     =icon('far','heart') do
                       %span 100  
-= render partial: 'top/footer', locals: { footer: @footer }
-- if user_signed_in?
-  %a(href="/items/new")
-    .sellBtn
-      %span.sellBtn__text 出品する
-      -# = image_tag 'icon_camera.png', alt: '', height: '', width: '', class: 'sellBtn__icon'
-- else
-  %a(href="/users/sign_in")
-    .sellBtn
-      %span.sellBtn__text ログインして出品する
-      -# = image_tag 'icon_camera.png', alt: '', height: '', width: '', class: 'sellBtn__icon'
+
+-# - if user_signed_in?
+-#   %a(href="/items/new")
+-#     .sellBtn
+-#       %span.sellBtn__text 出品する
+-#       = image_tag "material/icon/icon_camera.png", class: 'sellBtn__icon'
+-# - else
+-#   %a(href="/users/sign_in")
+-#     .sellBtn
+-#       %span.sellBtn__text ログインして出品する
+-#       = image_tag "material/icon/icon_camera.png", class: 'sellBtn__icon'
+= render partial: 'layouts/footer', locals: { footer: @footer }
