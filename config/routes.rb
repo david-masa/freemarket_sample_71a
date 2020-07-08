@@ -23,10 +23,11 @@ Rails.application.routes.draw do
 
   resources :purchase, only: :index
 
-  resources :users,     only: [:show, :index, :edit, :update] do
+  resources :users,     only: [:new, :index, :edit, :update] do
     get 'edit_detail', to: 'users#edit_detail'
     patch 'update_detail', to: 'users#update_detail'
   end
+  
 
   resources :logout, only: :index
 
