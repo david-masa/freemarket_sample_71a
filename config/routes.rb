@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   end
 
 
-  root 'top#index'
-  resources :top, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  root 'top#index'	
+  resources :top, only: [:new, :create, :show, :edit, :update, :destroy]
+  
   resources :posts, only: :index
 
   resources :newreg, only: :index
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   resources :log, only: :index
 
 
-  resources :items, only: [:index, :new]
+  resources :items, only: [:index, :new, :create]
 
   resources :purchase, only: :index
 

@@ -139,7 +139,7 @@
       -# - @items.each do |p|
         = link_to items_path(p.id) do
           .contents__category_post_box
-            -# - if p.buyer_id
+            -# - if p.costomer
               .contents__category_post_box_souldout SOLDOUT
             .contents__category_post_box_iamge
               = image_tag "#{p.images.first.src}"
