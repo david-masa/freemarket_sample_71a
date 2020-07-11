@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_130244) do
+
+ActiveRecord::Schema.define(version: 2020_06_27_101545) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -35,11 +37,8 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,18 +70,10 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.integer "category_id", null: false
     t.string "brand"
     t.integer "condition_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "shipping_cost", null: false
+    t.integer "shipping_days", null: false
+    t.integer "costomer"
     t.integer "shipping_area_id"
-    t.integer "shipping_cost"
-    t.integer "shipping_days"
-  end
-
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "price"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,8 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birthday", null: false
-    t.string "relnum", null: false
+    t.string "telnum", null: false
     t.string "gender", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -101,7 +91,6 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "telnum"
     t.integer "year"
     t.integer "month"
     t.integer "day"
@@ -109,5 +98,6 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
 end

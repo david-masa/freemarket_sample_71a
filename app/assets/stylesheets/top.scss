@@ -195,10 +195,13 @@
       background-position: top center;
       position: relative;
       padding: 0 60px;
+      display: flex;
+      align-items: center;
       &_common{
-        position: absolute;
-        top: 230px;
-        left: 50px;
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 35px 0 0 0;
         &_title{
           font-size: 60px;
           color: white;
@@ -215,9 +218,9 @@
         }
         .inner__icon {
           width: 100%;
-          display: flex;
           margin: auto 0;
           margin-top: 24px;
+
           .aBtn {
             width: 180px;
             padding-top: 0px;
@@ -367,10 +370,13 @@
       background-size: cover;
       background-position: bottom center;
       position: relative;
+      display: flex;
+      align-items: center;
       &_common{
-        position: absolute;
-        left: 50px;
-        top: 100px;
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 35px 0 0 0;
 
         &_title{
           font-size: 25px;
@@ -388,7 +394,6 @@
         &_btn{
           .inner__icon {
             width: 100%;
-            display: flex;
             margin: auto 0;
             .aBtn {
               width: 180px;
@@ -640,7 +645,6 @@
     }
     .inner__iconn {
       width: 100%;
-      display: flex;
       justify-content: center;
       margin: auto 0;
       .aBtn {
@@ -769,6 +773,7 @@
     color: #ffffff;
     font-size: 18px;
     margin: 15px 0 5px;
+    list-style: none;
 
     a{
       text-decoration: none;

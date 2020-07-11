@@ -137,7 +137,7 @@
           = link_to "#" do
             新規投稿商品
     .contents__category_post
-      - @items.each do |p|
+      -# - @items.each do |p|
         = link_to items_path(p.id) do
           .contents__category_post_box
             - if p.costomer
@@ -207,7 +207,7 @@
 
 .footer_camera
   %li.footer_camera_btn
-    = link_to '出品', new_item_path
-    
+    = link_to '出品する', new_item_path
+
   %span
     = image_tag "material/icon/icon_camera.png", class: "icon-camera"
