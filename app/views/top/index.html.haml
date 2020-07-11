@@ -17,7 +17,7 @@
       .nav
         %ul.listsLeft
           %li.listsLeft__item.listsLeft__item--first
-            = link_to "カテゴリー", "#", class: "catBtn"
+            %a(id="categoryBtn" href="/")
               = render 'top/category'
           %li.listsLeft__item
             = link_to "ブランド", "#",class: "brandBtn"
