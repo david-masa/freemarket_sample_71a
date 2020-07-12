@@ -85,6 +85,7 @@
                 opacity: 0;
                 visibility: hidden;
                 background-color: white;
+                height: 740px;
                   &__child{
                   &:hover > .thirdMenu__grandchildren{
                   opacity: 1;
@@ -98,6 +99,7 @@
                       top: 0px;
                       opacity: 0;
                       visibility: hidden;
+                      height: 800px;
                       &__grandchild{
                         background-color: white;
                       }

@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
 
-  # belongs_to user, foreign_key: 'user_id'
   extend ActiveHash::Associations::ActiveRecordExtensions
   validates :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, presence: true
   validates :images, presence: true
