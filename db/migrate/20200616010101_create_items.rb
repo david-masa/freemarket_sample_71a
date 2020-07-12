@@ -12,7 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :costomer
 
       # t.references :user, null: false, foreign_key: true
-      t.timestamp
+      t.timestamps
     end
   end
 end

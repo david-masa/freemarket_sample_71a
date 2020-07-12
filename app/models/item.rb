@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   validates :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, presence: true
   validates :images, presence: true
@@ -22,5 +23,4 @@ class Item < ApplicationRecord
   def next
     Item.where("id > ?", self.id).order("id ASC").first
   end
-  
 end

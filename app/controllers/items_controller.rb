@@ -7,9 +7,18 @@ class ItemsController < ApplicationController
     # binding.pry
     @item = Item.new
     @item.images.new
-  
+
+    def get_parent
+      @category_parent_array = Category.where(ancestry: nil)
+    end
+    
     def get_category_children
-      @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+      respond_to do |format|
+        format.html
+        format.json do
+          @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+        end
+      end
     end
 
     def get_category_grandchildren
