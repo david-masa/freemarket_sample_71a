@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     # binding.pry
     @item = Item.new
     @item.images.new
+    @category_parent_array = Category.where(ancestry: nil)
 
     def get_parent
       @category_parent_array = Category.where(ancestry: nil)
