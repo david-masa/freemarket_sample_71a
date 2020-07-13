@@ -13,11 +13,11 @@ describe Item, type: :model do
     
     context 'can not save' do
 
-      # it 'is invalid without user_id' do
-      #   item = build(:item, user_id: nil)
-      #   item.valid?
-      #   expect(item.errors[:user_id]).to include("を入力してください")
-      # end
+      it 'is invalid without user_id' do
+        item = build(:item, user_id: nil)
+        item.valid?
+        expect(item.errors[:user_id]).to include("を入力してください")
+      end
 
       it 'is invalid without category_id' do
         item = build(:item, category_id: nil)
@@ -44,19 +44,19 @@ describe Item, type: :model do
       end
 
       it 'is invalid without description' do
-        item = build(:item, description: nil)
+        item = build(:item, detail: nil)
         item.valid?
         expect(item.errors[:detail]).to include("を入力してください")
       end
 
       it 'is invalid without prefecture_id' do
-        item = build(:item, prefecture_id: nil)
+        item = build(:item, shipping_area_id: nil)
         item.valid?
         expect(item.errors[:shipping_area_id]).to include("を入力してください")
       end
 
       it 'is invalid without postage' do
-        item = build(:item, postage: nil)
+        item = build(:item, shipping_cost: nil)
         item.valid?
         expect(item.errors[:shipping_cost]).to include("を入力してください")
       end
@@ -68,7 +68,7 @@ describe Item, type: :model do
       end
 
       it 'is invalid without wait' do
-        item = build(:item, wait: nil)
+        item = build(:item, shipping_days: nil)
         item.valid?
         expect(item.errors[:shipping_days]).to include("を入力してください")
       end

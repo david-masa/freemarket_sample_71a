@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 
   def create
     # binding.pry
-    @item = Item.create!(item_params)
+    @item = Item.create(item_params)
     if @item.save
       redirect_to items_path, notice: "出品しました"
     else
