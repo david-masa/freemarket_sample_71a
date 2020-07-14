@@ -82,7 +82,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     year = params["user"]["year(1i)"]
     month =  params["user"]["year(2i)"] 
     day =  params["user"]["year(3i)"]
-    params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :telnum, :gender).merge(year: year,month: month, day: day)
+    
+    params.require(:user).permit(:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :password_confirmation, :telnum, :gender).merge(year: year,month: month, day: day)
   end
 
 

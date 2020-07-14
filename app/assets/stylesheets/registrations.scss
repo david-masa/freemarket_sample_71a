@@ -71,11 +71,24 @@ label {
 
 }
 span{
-  margin: 0 auto;
+  margin: auto;
   font-size: 15px;
   color: red;
 }
 
+.pas {
+  margin-left: 30px;
+}
+
+.pasw {
+  margin-left: 70px;
+}
+
+
+
+.field_with_errors {
+  display: inline;
+}
 
 
 
