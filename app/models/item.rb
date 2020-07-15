@@ -1,13 +1,12 @@
 class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, presence: true
+  validates :user_id, :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, presence: true
   validates :images, presence: true
   validates :price, :numericality => { :greater_than => 299 }
   validates :price, :numericality => { :less_than => 9999999  }
-
-  # 下記2行、今後ユーザー登録やカテゴリ機能との結びつきの実装を予想してコメントアウト状態にしています。
-  # belongs_to :user
+  belongs_to :user, optional: true
+  # 下記1行、今後ユーザー登録やカテゴリ機能との結びつきの実装を予想してコメントアウト状態にしています。
   # belongs_to :category
   
   has_many :images, dependent: :destroy
