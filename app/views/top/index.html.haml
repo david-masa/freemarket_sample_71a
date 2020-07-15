@@ -136,13 +136,14 @@
           = link_to "#" do
             新規投稿商品
     .contents__category_post
-      -# - @items.each do |p|
+      - @items.each do |p|
         = link_to items_path(p.id) do
           .contents__category_post_box
-            -# - if p.costomer
+            = link_to posts_path do
+              -# - if p.costomer
               .contents__category_post_box_souldout SOLDOUT
             .contents__category_post_box_iamge
-              = image_tag "#{p.images.first.src}"
+              = image_tag "#{p.images.first}"
             .contents__category_post_box_article
               %lu.contents__category_post_box_article_detail
                 %li

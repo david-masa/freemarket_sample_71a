@@ -152,7 +152,16 @@
   opacity: 0.5;
 }
 
-
+.d-itemChangeBox{
+  background-color: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+  line-height: 48px;
+  margin: 16px 0;
+  cursor: pointer;
+}
 
 .d-commentBox {
   margin: 10px 0;

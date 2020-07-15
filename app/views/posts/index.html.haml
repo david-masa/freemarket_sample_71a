@@ -76,6 +76,12 @@
               %a{:href => "#"}
                 =icon('fa','flag')
                 不適切な商品の通報
+
+      .d-itemChangeBox
+        = link_to "商品編集", edit_post_path(@posts)
+        -# - @posts.each do |post|
+        -#   = link_to edit_post_path(post.id)
+
       
       .d-commentBox
         -# form_for

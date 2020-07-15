@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root 'top#index'	
   resources :top, only: [:new, :create, :show, :edit, :update, :destroy]
   
-  resources :posts, only: :index
+  resources :posts, only: [:index, :edit]
 
   resources :newreg, only: :index
 
