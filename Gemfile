@@ -72,6 +72,7 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'devise'
 gem 'pry-rails'
+gem 'rails-controller-testing'
 
 
 
@@ -79,3 +80,11 @@ gem 'pry-rails'
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+gem 'devise'
+
+gem 'pry-rails'
+gem 'carrierwave'
+gem 'ancestry'
+
+

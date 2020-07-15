@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function(){
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json'

@@ -17,7 +17,7 @@
       .nav
         %ul.listsLeft
           %li.listsLeft__item.listsLeft__item--first
-            = link_to "カテゴリー", "#", class: "catBtn"
+            = render 'top/category'
           %li.listsLeft__item
             = link_to "ブランド", "#",class: "brandBtn"
             %ul.brandsPulldown.displayNone
@@ -139,8 +139,10 @@
       - @items.each do |p|
         = link_to items_path(p.id) do
           .contents__category_post_box
+
             = link_to posts_path do
               -# - if p.costomer
+
               .contents__category_post_box_souldout SOLDOUT
             .contents__category_post_box_iamge
               = image_tag "#{p.images.first}"
