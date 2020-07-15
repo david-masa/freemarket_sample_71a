@@ -2,6 +2,14 @@ class Address < ApplicationRecord
   belongs_to :user, optional: true
   validates :family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :city, :local, :block,presence: true
 
+
+  # バリテーション カナ
+  validates :family_name_kana,:first_name_kana, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/, message: '全角カタカナで入力して下さい。'}
+
+  # バリテーション 郵便番号
+  validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+
+
   enum city:{
     "---":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
