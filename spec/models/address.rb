@@ -6,26 +6,25 @@ describe Address, type: :model do
     it "項目がない場合は登録できないこと" do
       address = build(:address, family_name: nil, first_name: nil, family_name_kana: nil, first_name_kana: nil, postal_code: nil, city: nil)
       address.valid?
-      expect(user.errors[:family_name]).to include("can't be blank")
+      expect(address.errors.full_messages).to include("Family nameを入力してください")
     end
 
     it "family_name_kanaがカナで返る事" do
       address = build(:address, family_name_kana: "kana")
       address.valid?
-      
-      expect(user.errors[:family_name_kana]).to include("is invalid")
+      expect(address.errors.full_messages).to include("Family name kanaは不正な値です")
     end
 
     it "first_name_kanaがカナで返る事" do
       address = build(:address, first_name_kana: "kana")
       address.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(address.errors.full_messages).to include("First name kanaは不正な値です")
     end
 
-    it "telnumがハイフン付きの7の数字で返る事" do
+    it "post_codeがハイフン付きの7の数字で返る事" do
       address = build(:address, postal_code: "123-123")
       address.valid?
-      expect(user.errors[:postal_code]).to include("is invalid")
+      expect(address.errors.full_messages).to include("Postal codeは不正な値です")
     end
 
   end
