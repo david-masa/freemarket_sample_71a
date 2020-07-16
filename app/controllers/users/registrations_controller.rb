@@ -54,7 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
-    redirect_to items_path
+    redirect_to root_path
     else
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
