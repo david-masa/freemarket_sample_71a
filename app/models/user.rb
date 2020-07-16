@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :telnum, :gender, :year ,presence: true
 
   # バリテーション カナ
-  validates :last_name_kana, :first_name_kana, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/, message: '全角カタカナで入力して下さい。'}
+  validates :last_name_kana, :first_name_kana, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/ }
 
   # バリテーション 電話番号
   validates :telnum, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/} 

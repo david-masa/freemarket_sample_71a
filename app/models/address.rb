@@ -4,7 +4,7 @@ class Address < ApplicationRecord
 
 
   # バリテーション カナ
-  validates :family_name_kana,:first_name_kana, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/, message: '全角カタカナで入力して下さい。'}
+  validates :family_name_kana,:first_name_kana, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/ }
 
   # バリテーション 郵便番号
   validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
