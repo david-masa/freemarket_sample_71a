@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+  # before_action :ensure_current_user, only:[:edit, :update]
+  # before_action :set_item, only:[:new, :create, :edit, :update]
+
   def index
-    @items = Item.includes(:images).order('created_at DESC').page(params[:page]).per(5)
+    @items = Item.all
   end
 
   def new
@@ -29,7 +32,7 @@ class ItemsController < ApplicationController
 
   def create
     # binding.pry
-    @item = Item.create!(item_params)
+    @item = Item.create(item_params)
     if @item.save
       redirect_to items_path, notice: "出品しました"
     else
@@ -44,9 +47,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item.id), notice: "商品情報を編集しました"
+      redirect_to item_path
     else
-      redirect_to edit_item_path, notice: "編集できません。入力必須項目を確認してください"
+      render :edit
     end
   end
 
@@ -82,9 +85,11 @@ class ItemsController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in?
   end
-  def correct_user
-    if @current_user.id !=  @item.user_id
-     redirect_to root_path
+
+  def ensure_current_user
+    product = Product.find(params[:id])
+    if product.user_id != current_user.id
+      redirect_to action: :index
     end
   end
 end
