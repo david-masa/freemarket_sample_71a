@@ -23,25 +23,23 @@
 
 
           .field
-            = f.label :パスワード
+            = f.label :パスワード（7文字以上）
             - if @minimum_password_length
-              %em
-                (#{@minimum_password_length} 文字以上)
-              %span 必須  
+              
+              %span.pas 必須  
             %br/
             = f.password_field :password, autocomplete: "new-password", class:"input-tag", placeholder:"例：xxxxxxx"
             .field
-              = f.label :パスワード確認
-              %em
-                (#{@minimum_password_length} 文字以上)
-              %span 必須 
+              = f.label :パスワード確認（7文字以上）
+              
+              %span.pasw 必須 
               %br/
               = f.password_field :password_confirmation, autocomplete: "new-password", class:"input-tag", placeholder:"例：xxxxxxx"
 
 
 
           .field
-            = f.label :"名前" ,class:"name"
+            = f.label :"名前" 
             %span 必須
             %br/
             = f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"input-halftag", placeholder:"例：佐藤"
@@ -49,7 +47,7 @@
 
 
           .field
-            = f.label :"カナ",class:"kana"
+            = f.label :"カナ"
             %span 必須
             %br/
             = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class:"input-halftag" , placeholder:"例：サトウ"

@@ -71,11 +71,12 @@ ActiveRecord::Schema.define(version: 2020_07_06_130244) do
     t.integer "category_id", null: false
     t.string "brand"
     t.integer "condition_id", null: false
-    t.integer "shipping_cost", null: false
-    t.integer "shipping_days", null: false
-    t.integer "costomer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "shipping_area_id"
+
     t.index ["user_id"], name: "index_items_on_user_id"
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
