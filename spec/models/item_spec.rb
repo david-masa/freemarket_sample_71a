@@ -28,7 +28,6 @@ describe Item, type: :model do
       it 'is invalid without name' do
         item = build(:item, name: nil)
         item.valid?
-        binding.pry
         expect(item.errors[:name]).to include("を入力してください")
       end
       

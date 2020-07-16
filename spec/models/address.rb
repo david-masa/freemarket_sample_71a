@@ -18,8 +18,6 @@ describe Address, type: :model do
     it "first_name_kanaがカナで返る事" do
       address = build(:address, first_name_kana: "kana")
       address.valid?
-      binding.pry
-      
       expect(address.errors.full_messages).to include("First name kanaは不正な値です")
     end
 
