@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
-  # before_action :ensure_current_user, only:[:edit, :update]
-  # before_action :set_item, only:[:new, :create, :edit, :update]
+  before_action :ensure_current_user, only:[:edit, :update]
+  before_action :set_item, only:[:edit, :update, :destroy]
 
   def index
     @items = Item.all
   end
 
   def new
-    # binding.pry
     @item = Item.new
     @item.images.new
     @category_parent_array = Category.where(ancestry: nil)
@@ -31,10 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @item = Item.create(item_params)
-    if @item.save
-      redirect_to items_path, notice: "出品しました"
+    @item = Item.new(item_params)
+    if @item.save!
+      redirect_to root_path, notice: "出品しました"
     else
       redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
     end
@@ -75,7 +73,20 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :detail, :brand, :category_id, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :costomer, images_attributes: [:src, :_destroy, :id])
+    params.require(:item).permit(:name, :detail, :brand, :category_id, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :costomer, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)  
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
+  end
+  def correct_user
+    if @current_user.id !=  @item.user_id
+     redirect_to root_path
+    end
   end
 
   def set_item
@@ -87,8 +98,8 @@ class ItemsController < ApplicationController
   end
 
   def ensure_current_user
-    product = Product.find(params[:id])
-    if product.user_id != current_user.id
+    item = Item.find(params[:id])
+    if item.user_id != current_user.id
       redirect_to action: :index
     end
   end
