@@ -66,7 +66,7 @@ describe Item, type: :model do
         item.valid?
         expect(item.errors[:shipping_days]).to include("を入力してください")
       end
-
+      
     end
   end
 end
