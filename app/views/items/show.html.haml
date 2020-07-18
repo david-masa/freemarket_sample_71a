@@ -11,7 +11,7 @@
           %ul
             %li
               = image_tag @item.images[0].src.url, class:"firstImage"
-              -if @item.buyer_id.present?
+              -# -if @item.buyer_id.present?
                 .d-itemBox__body--triangle
                 .d-itemBox__body__soldout
                   SOLD
@@ -28,7 +28,7 @@
         .d-itemDetail
           .noticeMsg
             %p
-              = simple_format @item.description
+              -# = simple_format @item.description
         .d-table
           %table
             %tbody
@@ -42,16 +42,16 @@
               %tr
                 %th カテゴリー
                 %td.d-table--blue
-                  = link_to category_path(@item.category.id) do
+                  -# = link_to category_path(@item.category.id) do
                     =@item.category_id.name
               %tr
                 %th ブランド
                 %td 
-                  =@item.brand.name
+                  -# =@item.brand.name
               %tr
                 %th 商品の状態
                 %td
-                  =@item.condition.name
+                  -# =@item.condition.name
               %tr
                 %th 配送料の負担
                 %td 
@@ -59,41 +59,35 @@
               %tr
                 %th 発送元の地域
                 %td
-                  = @item.shipping_area_id.name
+                  -# = @item.shipping_area_id.name
               %tr
                 %th 発送日の目安
                 %td 
                   =@item.shipping_days
-        .d-optonalArea
-          %ul
-            %li.d-optinalBtn.d-likeBtn
-              =icon('fa','star')
-              お気に入り 0
-          %ul.d-optional
-            %li.d-optionalBtn
-              =link_to item_path(@item), method: :get, data: { confirm: '不適切な商品を報告しますか？' } do
-                =icon('fa','flag')
-                不適切な商品の通報
+        .d-itemChangeBox
+          = link_to "商品編集", edit_item_path(@items)
+          - @items.each do |item|
+            = link_to edit_item_path(item.id)
       .d-itemChangeBox
         %ul.d-itemChangeBox__btnList
-          -if @item.buyer_id.present?
-            %li.d-itemChangeBox__btnList__soldOutNotice
-              売り切れました
-          -elsif user_signed_in? && current_user.id == @item.user_id
-            %li
-              = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
-            or
-            %li
-              = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}
-          -elsif user_signed_in? == false
-            = link_to new_user_session_path do
-              %button.d-itemChangeBox__btnList__buyBtn
-                ログインして購入する
-          -else
-            %li
-              = link_to item_purchase_index_path(@item.id) do
-                %button.d-itemChangeBox__btnList__buyBtn
-                  購入画面に進む
+          -# -if @item.buyer_id.present?
+          -#   %li.d-itemChangeBox__btnList__soldOutNotice
+          -#     売り切れました
+          -# -elsif user_signed_in? && current_user.id == @item.user_id
+          -#   %li
+          -#     = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
+          -#   or
+          -#   %li
+          -#     = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}
+          -# -elsif user_signed_in? == false
+          -#   = link_to new_user_session_path do
+          -#     %button.d-itemChangeBox__btnList__buyBtn
+          -#       ログインして購入する
+          -# -else
+          -#   %li
+          -#     = link_to item_purchase_index_path(@item.id) do
+          -#       %button.d-itemChangeBox__btnList__buyBtn
+          -#         購入画面に進む
       .d-commentBox
         - if @comments
           - @comments.each do |comment|
@@ -108,37 +102,37 @@
                 .d-commentBox__list__content__date
                   = comment.updated_at
 
-        -if @item.buyer_id.present? && user_signed_in?
-          =form_for [@item, @comment] do |f|
-            = f.text_area :text, disabled: true
-            .d-noticeMsg
-              %p
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br
-            = f.submit "売り切れのためコメントできません", class: "d-commentBtn", disabled: true
-        -elsif user_signed_in?
-          =form_for [@item, @comment] do |f|
-            = f.text_area :text
-            .d-noticeMsg
-              %p
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br
-            = f.submit "コメントする", class: "d-commentBtn"
-        -else
-    .d-links
-      %ur
-        %li 
-          - if @item.next.present?
-            = link_to item_path(@item.next) do
-              <
-              = @item.next.name
-        %li 
-          - if @item.previous.present?
-            = link_to item_path(@item.previous) do
-              = @item.previous.name
-              >
+        -# -if @item.buyer_id.present? && user_signed_in?
+        -#   =form_for [@item, @comment] do |f|
+        -#     = f.text_area :text, disabled: true
+        -#     .d-noticeMsg
+        -#       %p
+        -#         相手のことを考え丁寧なコメントを心がけましょう。
+        -#         %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        -#     %br
+        -#     = f.submit "売り切れのためコメントできません", class: "d-commentBtn", disabled: true
+    -#     -elsif user_signed_in?
+    -#       =form_for [@item, @comment] do |f|
+    -#         = f.text_area :text
+    -#         .d-noticeMsg
+    -#           %p
+    -#             相手のことを考え丁寧なコメントを心がけましょう。
+    -#             %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    -#         %br
+    -#         = f.submit "コメントする", class: "d-commentBtn"
+    -#     -else
+    -# .d-links
+    -#   %ur
+    -#     %li 
+    -#       - if @item.next.present?
+    -#         = link_to item_path(@item.next) do
+    -#           <
+    -#           = @item.next.name
+    -#     %li 
+    -#       - if @item.previous.present?
+    -#         = link_to item_path(@item.previous) do
+    -#           = @item.previous.name
+    -#           >
 
 .d-footer
   = render partial: 'layouts/footer', locals: { footer: @footer }
