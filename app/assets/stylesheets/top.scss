@@ -568,14 +568,20 @@
       padding: 0 100px;
       flex-wrap: wrap;
       a{
-       text-decoration: none;
-        color: #333;
+        text-decoration: none;
+        width: 220px;
+        height: 250px;
+        position: absolute;
+        padding: 0 100px;
+
+
       }
       &_box{
         height: 250px;
         width: 220px;
         margin: 20px 40px;
         position: relative;
+        z-index: auto;
         &_souldout{
           height: 39px;
           width: 100%;
@@ -587,11 +593,23 @@
           font-size: 39px;
           opacity: 0.5;
         }
-        &_iamge{
+        &_image{
           height: 150px;
           width: 220px;
           background-color: #fff;
           text-align: center;
+          display: flex;
+          img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: auto;
+            height: 150px;
+            object-fit: cover;
+          }
         }
         &_article{
           height: 100px;
