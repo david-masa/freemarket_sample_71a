@@ -65,8 +65,8 @@ class ItemsController < ApplicationController
   end
 
   def top
-    @items = Item.includes(:images).order('created_at DESC').limit(3)
-    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(3)
+    @items = Item.includes(:images).order('created_at DESC').limit(5)
+    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(5)
   end
 
   private
