@@ -19,11 +19,13 @@ describe Item, type: :model do
       #   expect(item.errors[:category_id]).to include("を入力してください")
       # end
 
-      # it 'is invalid without brand' do
-      #   item = build(:item, brand: nil)
-      #   item.valid?
-      #   expect(item.errors[:brand]).to include("を入力してください")
-      # end
+      it "brandがなくても登録できること" do
+        item = build(:item, brand: "")
+        # item.valid?
+        expect(item[:brand]).to be_valid
+      end
+
+      # expect(build(:message, image: nil)).to be_valid
       
       it 'is invalid without name' do
         item = build(:item, name: nil)
@@ -66,7 +68,7 @@ describe Item, type: :model do
         item.valid?
         expect(item.errors[:shipping_days]).to include("を入力してください")
       end
-      
+
     end
   end
 end
