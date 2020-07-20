@@ -64,21 +64,18 @@
                 %th 発送日の目安
                 %td 
                   =@item.shipping_days
-        .d-itemChangeBox
-          = link_to "商品編集", edit_item_path(@items)
-          - @items.each do |item|
-            = link_to edit_item_path(item.id)
+    .d-itemChangeBox
       .d-itemChangeBox
         %ul.d-itemChangeBox__btnList
           -# -if @item.buyer_id.present?
           -#   %li.d-itemChangeBox__btnList__soldOutNotice
           -#     売り切れました
-          -# -elsif user_signed_in? && current_user.id == @item.user_id
-          -#   %li
-          -#     = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
-          -#   or
-          -#   %li
-          -#     = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}
+          -if user_signed_in? && current_user.id == @item.user_id
+            %li
+              = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
+            or
+            %li
+              = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}
           -# -elsif user_signed_in? == false
           -#   = link_to new_user_session_path do
           -#     %button.d-itemChangeBox__btnList__buyBtn
