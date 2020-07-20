@@ -75,7 +75,7 @@
               = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
             or
             %li
-              = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}
+              = button_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"} 
           -# -elsif user_signed_in? == false
           -#   = link_to new_user_session_path do
           -#     %button.d-itemChangeBox__btnList__buyBtn
