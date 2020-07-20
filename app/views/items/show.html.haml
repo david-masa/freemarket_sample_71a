@@ -9,52 +9,59 @@
         .d-itemBox__body
           %ul
             %li
-              = image_tag  "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+              = image_tag @item.images[0].src.url, class:"firstImage"
               %ul
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", :width => "75", :height => "75"
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", :width => "75", :height => "75"
-                %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", :width => "75", :height => "75"
+                - @item.images.each do |image|
+                  %li
+                    = image_tag image.src.url, :width => "75", :height => "75",class:"imageList"
 
         .d-itemBox__price
-          ¥20,000
+          ¥
+          =@item.price
           .d-itemBox__price-detail
             %span (税込)
             %span 送料込み
         .d-itemDetail
           .noticeMsg
             %p
-            商品紹介詳細を置く
+            -# 商品紹介詳細を置く
           .d-table
             %table
               %tbody
                 %tr
                   %th 出品者
 
-                  %td 太郎
+                  %td
+                    = link_to @item.user.nickname, "/users/#{@item.user_id}"
                 %tr
                   %th カテゴリー
-                  %td ワンピース
+                  %td 
+                    -# = link_to category_path(@item.category.id) do
+                    -# =@item.category.name
                 %tr
                   %th ブランド
-                  %td ドロシーズ
+                  %td
+                    =@item.brand
                 %tr
                   %th 商品のサイズ
-                  %td M
+                  %td 
+                    -# =@item.size
                 %tr
                   %th 商品の状態
-                  %td 目立った汚れなし
+                  %td
+                    =@item.condition
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者の負担）
+                  %td
+                    =@item.shipping_cost
                 %tr
                   %th 発送元の地域
-                  %td hoge
+                  %td
+                    =@item.shipping_area_id
                 %tr
                   %th 発送日の目安
-                  %td hoge
+                  %td
+                    =@item.shipping_days
           
 
         .d-itemChangeBox
@@ -64,9 +71,15 @@
 
       %ur.d-links
         %li 
-          =link_to "<前の商品"
+          - if @item.next.present?
+            = link_to item_path(@item.next) do
+              <
+              = @item.next.name
         %li 
-          =link_to "後ろの商品>"
+          - if @item.previous.present?
+            = link_to item_path(@item.previous) do
+              = @item.previous.name
+              >
       .d-relatedItems
         =link_to "カテゴリをもっと見る"
 
