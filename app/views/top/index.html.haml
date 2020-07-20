@@ -24,14 +24,14 @@
         %ul.listsRight
           %li.listsRight__item.listsRight__item--login
             - if user_signed_in?
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
+              %li.listsRight__item.listsRight__item--new  
+                = link_to "マイページ", users_path
             - else
               %li.listsRight__item.listsRight__item--new
                 = link_to "ログイン", new_user_session_path
               %li.listsRight__item.listsRight__item--new  
                 = link_to "新規登録", new_user_registration_path
-              %li.listsRight__item.listsRight__item--new  
-                = link_to "マイページ", users_path
+              
               %li.listsRight__item.listsRight__item--new  
                 = link_to "商品購入確認", purchase_index_path
               %li.listsRight__item.listsRight__item--new  
@@ -138,22 +138,21 @@
           = link_to "#" do
             新規投稿商品
     .contents__category_post
-      - @items.each do |p|
-        = link_to item_path(p.id) do
+      - @items.first(5).each do |item|
+        = link_to item_path(item.id) do
           .contents__category_post_box
-            -# = link_to posts_path do
-              -# - if p.costomer
+            -# - if p.costomer
 
               -# .contents__category_post_box_souldout SOLDOUT
             .contents__category_post_box_image
-              = image_tag "#{p.images.first.src}"
+              = image_tag "#{item.images.first.src}"
             .contents__category_post_box_article
               %lu.contents__category_post_box_article_detail
                 %li
                   %h3 
-                    = p.name
+                    = item.name
                 %li 
-                  = p.price
+                  = item.price
                   円
                 %li.contents__category_post_box_article_detail_tax
                   (税込)
