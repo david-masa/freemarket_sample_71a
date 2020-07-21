@@ -5,7 +5,7 @@ FactoryBot.define do
     detail   {"美味しい"}
     price         {1000}
     category_id   {1}
-    brand      {1}
+    brand      {"ナイキ"}
     shipping_area_id   {1}
     shipping_days          {"1〜2日"}
     shipping_cost      {"送料込み"}

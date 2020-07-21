@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path, notice: "出品しました"
     else
       redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path
     else
       render :edit
     end
@@ -62,13 +62,11 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:images)
     @item = Item.find(params[:id])
-    @comment = Comment.new
-    @comments = @item.comments.includes(:user)
   end
 
   def top
-    @items = Item.includes(:images).order('created_at DESC').limit(3)
-    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(3)
+    @items = Item.includes(:images).order('created_at DESC').limit(5)
+    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(5)
   end
 
   private
