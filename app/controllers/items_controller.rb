@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to items_path, notice: "商品を削除しました"
+      redirect_to root_path, notice: "商品を削除しました"
     else
       redirect_to item_path, notice: "商品を削除できませんでした"
     end
@@ -62,6 +62,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:images)
     @item = Item.find(params[:id])
+    
   end
 
   def top
