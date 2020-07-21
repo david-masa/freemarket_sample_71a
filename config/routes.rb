@@ -27,12 +27,22 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase, only: :index
+  resources :purchase, only: [:index] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
 
   resources :users, only: :index
 
   resources :logout, only: :index
 
-  resources :cards, only: [:index, :new]
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+    end
+  end  
 
 end
