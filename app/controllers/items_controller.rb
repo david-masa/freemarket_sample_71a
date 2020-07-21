@@ -34,7 +34,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "出品しました"
     else
-      redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
+      @item.images.new
+      render :new
     end
   end
 
@@ -53,7 +54,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to root_path, notice: "商品を削除しました"
+      redirect_to items_path, notice: "商品を削除しました"
     else
       redirect_to item_path, notice: "商品を削除できませんでした"
     end

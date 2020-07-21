@@ -3,7 +3,8 @@
     = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path
       
   .n__form__container
-    =form_for @item do |f|
+    = form_for @item do |f|
+      = render "devise/shaerror_messages", model: f.object
       %ul
         .n__image__container
           %p.message 商品出品画像（必須）
