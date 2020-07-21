@@ -110,14 +110,58 @@
 }
 
 .d-itemChangeBox{
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
-  color: #fff;
-  width: 100%;
-  font-size: 16px;
-  line-height: 48px;
-  margin: 16px 0;
-  cursor: pointer;
+  padding: 24px 40px 40px;
+  text-align: center;
+  background-color: #ffffff;
+  &__btnList {
+    &__editBtn{
+      background-color: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+    }
+    &__deleteBtn {
+      background-color: grey;
+      border: 1px solid grey;
+    }
+    &__buyBtn {
+      cursor: pointer;
+      background-color: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+    }
+    &__soldOutNotice{
+      background-color: #3CCACE;
+      color: #fff;
+      margin: 16px 0px;
+      height: 53px;
+      line-height: 53px;
+    }
+    button {
+      width: 100%;
+      font-size: 16px;
+      line-height: 48px;
+      margin: 16px 0;
+    }
+    #d-edit {
+      background-color: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 100%;
+      font-size: 16px;
+      line-height: 48px;
+      margin: 16px 0;
+      cursor: pointer;
+    }
+    input {
+      background-color: grey;
+      border: 1px solid grey;
+      width: 100%;
+      font-size: 16px;
+      line-height: 48px;
+      margin: 16px 0;
+      cursor: pointer;
+    }
+  }
 }
 
 
