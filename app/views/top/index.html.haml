@@ -141,9 +141,8 @@
       - @items.first(5).each do |item|
         = link_to item_path(item.id) do
           .contents__category_post_box
-            -# - if p.costomer
-
-              -# .contents__category_post_box_souldout SOLDOUT
+            - if item.costomer
+              .contents__category_post_box_souldout SOLDOUT
             .contents__category_post_box_image
               = image_tag "#{item.images.first.src}"
             .contents__category_post_box_article
