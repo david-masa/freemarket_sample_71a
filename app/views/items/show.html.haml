@@ -64,9 +64,9 @@
         .d-itemChangeBox
           .d-itemChangeBox
             %ul.d-itemChangeBox__btnList
-              -# -if @item.buyer_id.present?
-              -#   %li.d-itemChangeBox__btnList__soldOutNotice
-              -#     売り切れました
+              -if @item.costomer.present?
+                %li.d-itemChangeBox__btnList__soldOutNotice
+                  売り切れました
               -if user_signed_in? && current_user.id == @item.user_id
                 %li
                   = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
