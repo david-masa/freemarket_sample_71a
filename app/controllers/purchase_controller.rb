@@ -1,10 +1,10 @@
 class PurchaseController < ApplicationController
   before_action :set_category
   require 'payjp'
-  before_action :set_item,       only: [:index, :pay]
+  #before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
-  before_action :no_direct_path, only: [:index, :pay]
-  before_action :buyer_id?,      only: [:index, :pay]
+  # before_action :no_direct_path, only: [:index, :pay]
+  # before_action :costomer?,      only: [:index, :pay]
 
   def index
     @city = Prefecture.find(current_user.address.city).name
@@ -30,8 +30,8 @@ class PurchaseController < ApplicationController
     :customer => @card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
     )
-    @item.buyer_id = 0
-    @item.buyer_id = @item.buyer_id + current_user.id
+    @item.costomer = 0
+    @item.costomer = @item.costmer + current_user.id
     @item.save
     redirect_to action: 'done' #完了画面に移動
   end
@@ -58,8 +58,8 @@ class PurchaseController < ApplicationController
     end
   end
 
-  def buyer_id?
-    if @item.buyer_id.present?
+  def costomer?
+    if @item.costomer.present?
       redirect_to item_path(@item.id)
     end
   end
