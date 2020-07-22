@@ -8,11 +8,12 @@ class CardsController < ApplicationController
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
-    Payjp.api_key = Rails.application.secrets.payjp_private_key
+    Payjp.api_key = "sk_test_9b65a38cd7d3475c8ed78c17"
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
+      email: current_user.email,
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
