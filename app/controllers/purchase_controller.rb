@@ -4,17 +4,18 @@ class PurchaseController < ApplicationController
   before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
   before_action :no_direct_path, only: [:index, :pay]
-  before_action :buyer_id?,      only: [:index, :pay]
+  # before_action :no_direct_path, only: [:index, :pay]
+  # before_action :costomer?,      only: [:index, :pay]
 
   def index
-    @city = Prefecture.find(current_user.address.city).name
+    # @city = Prefecture.find(current_user.address.city).name
     @card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "cards", action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = ENV["pk_test_61fe8dd669a59526fd8542f5"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
@@ -30,8 +31,8 @@ class PurchaseController < ApplicationController
     :customer => @card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
     )
-    @item.buyer_id = 0
-    @item.buyer_id = @item.buyer_id + current_user.id
+    @item.costomer = 0
+    @item.costomer = @item.costomer + current_user.id
     @item.save
     redirect_to action: 'done' #完了画面に移動
   end
@@ -58,8 +59,8 @@ class PurchaseController < ApplicationController
     end
   end
 
-  def buyer_id?
-    if @item.buyer_id.present?
+  def costomer?
+    if @item.costomer.present?
       redirect_to item_path(@item.id)
     end
   end
