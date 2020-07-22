@@ -2,33 +2,28 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card, only: [:destroy, :show]
   before_action :set_category
-
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
-  def pay
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-    if params['card_token'].blank?
+  def pay #payjpとCardのデータベース作成を実施します。
+    Payjp.api_key = Rails.application.secrets.payjp_private_key
+    if params['payjp-token'].blank?
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-        card: params[:card_token],
-        metadata: {user_id: current_user.id}
-      )
-      @card = Card.new(
-        card_id: customer.default_card,
-        customer_id: customer.id,
-        user_id: current_user.id
-      )
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       unless @card.save
         redirect_to action: "pay"
       end
     end
   end
 
-  def destory
+  def destroy #PayjpとCardデータベースを削除します
     unless @card.blank?
       Payjp.api_key = Rails.application.secrets.payjp_private_key
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -37,7 +32,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
+  def show #Cardのデータpayjpに送り情報を取り出します
     if @card.blank?
       redirect_to action: "new" 
     else
@@ -48,10 +43,14 @@ class CardsController < ApplicationController
   end
 
   private
-
   def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @card = Card.where(user_id: current_user.id).first
   end
 
-
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
+  end
 end
