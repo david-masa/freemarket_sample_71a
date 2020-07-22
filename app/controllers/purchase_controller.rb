@@ -1,9 +1,8 @@
 class PurchaseController < ApplicationController
   before_action :set_category
   require 'payjp'
-  before_action :set_item,       only: [:index, :pay]
+  # before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
-  before_action :no_direct_path, only: [:index, :pay]
   # before_action :no_direct_path, only: [:index, :pay]
   # before_action :costomer?,      only: [:index, :pay]
 
