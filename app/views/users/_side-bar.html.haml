@@ -6,13 +6,14 @@
           .ui__wrapper__side-bar__contents__content
             マイページ >
       %li
-        = link_to cards_path do
-          .ui__wrapper__side-bar__contents__content
-            お支払い情報の確認、削除 >
-      %li
-        = link_to new_card_path do
-          .ui__wrapper__side-bar__contents__content
-            お支払い情報の登録 >
+        - if @card.present?
+          = link_to cards_path(current_user.id)  do
+            .ui__wrapper__side-bar__contents__content
+              お支払い情報の確認、削除 >
+        - else
+          = link_to new_card_path(current_user.id)  do
+            .ui__wrapper__side-bar__contents__content
+              お支払い情報の登録 >
       %li
         = link_to logout_index_path do
           .ui__wrapper__side-bar__contents__content

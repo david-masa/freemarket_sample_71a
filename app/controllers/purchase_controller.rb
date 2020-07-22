@@ -1,7 +1,7 @@
 class PurchaseController < ApplicationController
   before_action :set_category
   require 'payjp'
-  # before_action :set_item,       only: [:index, :pay]
+  #before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
   # before_action :no_direct_path, only: [:index, :pay]
   # before_action :costomer?,      only: [:index, :pay]
@@ -37,11 +37,7 @@ class PurchaseController < ApplicationController
     :currency => 'jpy', #日本円
     )
     @item.costomer = 0
-    @item.costomer = @item.costomer + current_user.id
     @item.save
-    redirect_to action: 'done' #完了画面に移動
-  end
-
   private
   def set_item
     @item = Item.find(params[:item_id])
