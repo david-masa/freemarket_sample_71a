@@ -77,6 +77,11 @@
                 = link_to new_user_session_path do
                   %button.d-itemChangeBox__btnList__buyBtn
                     ログインして購入する
+              -else
+                %li
+                  = link_to  purchase_index_path(@item.id) do
+                    %button.d-itemChangeBox__btnList__buyBtn
+                      購入画面に進む
       %ur.d-links
         %li 
           - if @item.next.present?
