@@ -1,11 +1,6 @@
 require 'rails_helper'
-
-
-describe Item, type: :model do
+describe Product do
   describe '#create' do
-    let(:item) {create(:item)}
-    
-    context 'can not save' do
 
       it 'is invalid without user_id' do
         item = build(:item, user_id: nil)
@@ -19,11 +14,11 @@ describe Item, type: :model do
       #   expect(item.errors[:category_id]).to include("を入力してください")
       # end
 
-      # it 'is invalid without brand' do
-      #   item = build(:item, brand: nil)
-      #   item.valid?
-      #   expect(item.errors[:brand]).to include("を入力してください")
-      # end
+      it "brandがなくてもは登録できること" do
+        item = build(:item, brand: "")
+        expect(item).to be_valid
+      end
+  
       
       it 'is invalid without name' do
         item = build(:item, name: nil)
@@ -69,4 +64,4 @@ describe Item, type: :model do
       
     end
   end
-end
+# end
