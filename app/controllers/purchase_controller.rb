@@ -1,15 +1,12 @@
 class PurchaseController < ApplicationController
   before_action :set_category
   require 'payjp'
-  #before_action :set_item,       only: [:index, :pay]
+  before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
-  # before_action :no_direct_path, only: [:index, :pay]
-  # before_action :costomer?,      only: [:index, :pay]
+  before_action :no_direct_path, only: [:index, :pay]
+  before_action :costomer?,      only: [:index, :pay]
 
   def index
-    @item = Item.includes(:images)
-    @item = Item.find(params[:id])
-
     # @city = Prefecture.find(current_user.address.city).name
     @card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
@@ -17,7 +14,8 @@ class PurchaseController < ApplicationController
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "cards", action: "new"
     else
-      Payjp.api_key = 'sk_test_9b65a38cd7d3475c8ed78c17'
+      # @item = Item.includes(:images)
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
@@ -38,6 +36,7 @@ class PurchaseController < ApplicationController
     )
     @item.costomer = 0
     @item.save
+  end
   private
   def set_item
     @item = Item.find(params[:item_id])
@@ -65,6 +64,4 @@ class PurchaseController < ApplicationController
       redirect_to item_path(@item.id)
     end
   end
-
 end
-
