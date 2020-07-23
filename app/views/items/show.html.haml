@@ -64,9 +64,9 @@
         .d-itemChangeBox
           .d-itemChangeBox
             %ul.d-itemChangeBox__btnList
-              -# -if @item.buyer_id.present?
-              -#   %li.d-itemChangeBox__btnList__soldOutNotice
-              -#     売り切れました
+              -if @item.costomer.present?
+                %li.d-itemChangeBox__btnList__soldOutNotice
+                  売り切れました
               -if user_signed_in? && current_user.id == @item.user_id
                 %li
                   = button_to "商品の編集", edit_item_path(@item), id: "d-edit", method: :get
@@ -77,6 +77,11 @@
                 = link_to new_user_session_path do
                   %button.d-itemChangeBox__btnList__buyBtn
                     ログインして購入する
+              -else
+                %li
+                  = link_to  purchase_index_path(@item.id) do
+                    %button.d-itemChangeBox__btnList__buyBtn
+                      購入画面に進む
       %ur.d-links
         %li 
           - if @item.next.present?
@@ -142,7 +147,3 @@
       = link_to '出品', "#"
     %span
       = image_tag "material/icon/icon_camera.png", class: "icon-camera"
-
-
-
-    
