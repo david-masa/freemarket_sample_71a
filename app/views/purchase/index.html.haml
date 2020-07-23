@@ -11,16 +11,16 @@
         .purchase__confirm--upper__flex__content__list
           %ul
             %li.item__name
-              #{@item.name}
+              = @item.name
             %li.item__price
-              ¥#{@item.price} (税込み、送料込み)
+              = @item.price
     .purchase__confirm--row
       .purchase__confirm--row__price
         .purchase__confirm--row__price--flex
           %p.message
             支払い金額
-          .price__box
-            ¥#{@item.price}
+          %p.price__box
+            = @item.price
       .purchase__confirm--row__payment
         %p.message
           支払い方法
@@ -39,5 +39,5 @@
           %button.button 購入する
     .end__logo__container
       .end__logo__container__end__logo
-        = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
+        = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path
         %p :著作権:FURIMA.inc

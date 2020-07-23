@@ -79,7 +79,7 @@
                     ログインして購入する
               -else
                 %li
-                  = link_to  purchase_index_path(@item.id) do
+                  = link_to  item_purchase_index_path(@item.id) do
                     %button.d-itemChangeBox__btnList__buyBtn
                       購入画面に進む
       %ur.d-links
