@@ -15,7 +15,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :condition
 
-  enum condition_id:{"新品": 0, "未使用": 1, "未使用に近い": 3, "目立った傷や汚れなし": 4, "やや傷や汚れあり": 5, "傷や汚れあり": 6, "全体的に状態が悪い": 7}
+  belongs_to :category
+
+  enum condition_id:{"新品": 0, "未使用": 1, "未使用に近い": 2, "目立った傷や汚れなし": 3, "やや傷や汚れあり": 4, "傷や汚れあり": 5, "全体的に状態が悪い": 6}
   enum shipping_cost:{"送料込み（出品者負担）": 0, "着払い（購入者負担）": 1}
   enum shipping_days:{"1〜2日": 0, "2〜3日": 1, "4〜7日": 2}
 

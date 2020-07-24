@@ -62,6 +62,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:images)
     @item = Item.find(params[:id])
+    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(5)
     
   end
 
