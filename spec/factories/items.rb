@@ -11,6 +11,9 @@ FactoryBot.define do
     shipping_cost      {0}
     costomer        {nil}
     condition_id    {1}
+    # after(:build) do |item|
+    #   item.images << build(:image, item: item)
+    # end
     association :user
     # association :images
   end
