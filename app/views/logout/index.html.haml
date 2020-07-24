@@ -4,5 +4,6 @@
   .out__wrapper__main-bar
     .out__wrapper__main-bar__contents
       %button{type: "submit", class:'logout-btn'}
-        ログアウト
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+
 = render partial: 'top/footer', locals: { footer: @footer }
