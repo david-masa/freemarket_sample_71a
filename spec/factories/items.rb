@@ -8,10 +8,10 @@ FactoryBot.define do
     brand      {"ナイキ"}
     shipping_area_id   {1}
     shipping_days          {"1〜2日"}
-    shipping_cost      {"送料込み"}
+    shipping_cost      {0}
     costomer        {nil}
     condition_id    {1}
-    association :user, factory: :user
-    association :category, factory: :user
+    association :user
+    # association :images
   end
 end

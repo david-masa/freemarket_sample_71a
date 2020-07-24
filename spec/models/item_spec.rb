@@ -2,12 +2,6 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
 
-      it 'is invalid without user_id' do
-        item = build(:item, user_id: nil)
-        item.valid?
-        expect(item.errors[:user_id]).to include("を入力してください")
-      end
-
       it 'is invalid without category_id' do
         item = build(:item, category_id: nil)
         item.valid?
@@ -16,6 +10,7 @@ describe Item do
 
       it "brandがなくてもは登録できること" do
         item = build(:item, brand: "")
+        # binding.pry
         expect(item).to be_valid
       end
   

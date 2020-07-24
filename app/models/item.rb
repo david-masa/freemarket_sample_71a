@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :user_id, :name, :brand, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :category_id, presence: true
+  validates :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :category_id, presence: true
   validates :images, presence: true
   validates :price, :numericality => { :greater_than => 299 }
   validates :price, :numericality => { :less_than => 9999999  }

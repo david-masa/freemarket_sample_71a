@@ -9,7 +9,6 @@ FactoryBot.define do
     telnum              {"123-1234-1234"}
     gender               {"1"}
     year                 {"1"}
-    association :items, factory: :items
   end
 
 end
