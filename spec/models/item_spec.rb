@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe Product do
+describe Item do
   describe '#create' do
 
       it 'is invalid without user_id' do
@@ -8,11 +8,11 @@ describe Product do
         expect(item.errors[:user_id]).to include("を入力してください")
       end
 
-      # it 'is invalid without category_id' do
-      #   item = build(:item, category_id: nil)
-      #   item.valid?
-      #   expect(item.errors[:category_id]).to include("を入力してください")
-      # end
+      it 'is invalid without category_id' do
+        item = build(:item, category_id: nil)
+        item.valid?
+        expect(item.errors[:category_id]).to include("を入力してください")
+      end
 
       it "brandがなくてもは登録できること" do
         item = build(:item, brand: "")

@@ -11,7 +11,7 @@ FactoryBot.define do
     shipping_cost      {"送料込み"}
     costomer        {nil}
     condition_id    {1}
-
-    # association :category
+    association :user, factory: :user
+    association :category, factory: :user
   end
 end
