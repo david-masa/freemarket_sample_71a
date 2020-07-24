@@ -29,7 +29,7 @@
           %p.message 商品の詳細
           %p.message カテゴリー（必須)
           .sell-category-box
-            = f.collection_select :category_id, @category_parent_array, :id, :name, include_blank:"---",{class: 'sell__item-category', id: 'parent_category'}
+            = f.collection_select :category_id, @category_parent_array, :id, :name, {include_blank:"---", id: 'parent_category'}, {class: "sell__item-category"}
           %p.message ブランド（任意）
           = f.text_field :brand, class: "select-box", placeholder: "例）アディダス"
           %p.message 商品の状態（必須）
