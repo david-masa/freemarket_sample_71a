@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :user_id, :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, presence: true
+  validates :user_id, :name, :detail, :price, :condition_id, :shipping_area_id, :shipping_days, :shipping_cost, :category_id, presence: true
   validates :images, presence: true
   validates :price, :numericality => { :greater_than => 299 }
   validates :price, :numericality => { :less_than => 9999999  }
@@ -14,6 +14,8 @@ class Item < ApplicationRecord
   
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :condition
+
+  belongs_to :category
 
   enum condition_id:{"新品": 0, "未使用": 1, "未使用に近い": 3, "目立った傷や汚れなし": 4, "やや傷や汚れあり": 5, "傷や汚れあり": 6, "全体的に状態が悪い": 7}
   enum shipping_cost:{"送料込み（出品者負担）": 0, "着払い（購入者負担）": 1}
