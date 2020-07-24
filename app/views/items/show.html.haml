@@ -137,8 +137,12 @@
     %p © FURIMA
 
   .footer_camera
-    .footer_camera_btn
-      = link_to '出品', "#"
+    - if user_signed_in?
+      %li.footer_camera_btn
+        = link_to '出品する', new_item_path
+    - else
+      %li.footer_camera_btn
+        = link_to '出品する', new_user_session_path
     %span
       = image_tag "material/icon/icon_camera.png", class: "icon-camera"
 
