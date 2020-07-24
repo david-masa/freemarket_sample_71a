@@ -3,8 +3,8 @@ class PurchaseController < ApplicationController
   require 'payjp'
   before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
-  # before_action :no_direct_path, only: [:index, :pay]
-  # before_action :costomer?,      only: [:index, :pay]
+  before_action :no_direct_path, only: [:index, :pay]
+  before_action :costomer?,      only: [:index, :pay]
 
   def index
     @card = Card.where(user_id: current_user.id).first
