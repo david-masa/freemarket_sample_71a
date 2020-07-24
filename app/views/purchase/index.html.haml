@@ -1,26 +1,30 @@
 .c__container
   .c__container__logo
-    = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
+    = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path
   .c__container__confirm
     .c__container__confirm__title
       %p.message 購入内容確認
     .c__container__confirm--upper
       .c__container__confirm--upper__flex__content
         .c__container__confirm--upper__flex__content__image
-          = image_tag(@item.images[0].src.url, :width => '160', :height => '110')
+          = image_tag "#{@item.images.first.src}"
         .c__container__confirm--upper__flex__content__list
           %ul
             %li.item__name
-              #{@item.name}
+              = @item.name
             %li.item__price
-              ¥#{@item.price} (税込み、送料込み)
+              ¥
+              = @item.price
+              (税込み、送料込み)
     .c__container__confirm--row
       .c__container__confirm--row__price
         .c__container__confirm--row__price--flex
           %p.message
             支払い金額
-          .price__box
-            ¥#{@item.price}
+          %p.price__box
+            ¥
+            = @item.price
+            (税込み、送料込み)
       .c__container__confirm--row__payment
         %p.message
           支払い方法
@@ -37,7 +41,7 @@
       .c__container__confirm--row__submit
         = form_tag(action: :pay, method: :post) do
           %button.button 購入する
-    .c__end__logo__container
-      .c__end__logo__container__end__logo
-        = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
+    .end__logo__container
+      .end__logo__container__end__logo
+        = link_to image_tag('material/logo/logo.png', :width => '170', :height => '60'), root_path
         %p :著作権:FURIMA.inc
