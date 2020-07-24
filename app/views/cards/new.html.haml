@@ -2,9 +2,9 @@
 .p-wrapper
   = render "users/side-bar"
   .p-sign_up_main
-    .p-sign_up_main_content お支払い方法
+    .p-sign_up_main_content クレジットカード情報入力
     .p-card_input
-      = form_tag "#" do
+      = form_tag(pay_cards_path, method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "p-card_input_form") do
         .p-card_input_form_container
           .p-card_input_form_container_group
             %p.p-card_input_form_container_group_label
