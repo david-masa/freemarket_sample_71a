@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :ensure_current_user, only:[:edit, :update]
-  before_action :set_item, only:[:edit, :update, :destroy]
+  before_action :ensure_current_user, only: [:edit, :update]
+  before_action :set_item, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.all
