@@ -30,7 +30,7 @@ class PurchaseController < ApplicationController
     :currency => 'jpy', #日本円
     )
     @item.costomer = 0
-    @item.costomer = @item.costmer + current_user.id
+    @item.costomer = @item.costomer + current_user.id
     @item.save
     redirect_to action: 'done' #完了画面に移動
   end
