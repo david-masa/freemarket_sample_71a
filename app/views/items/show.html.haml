@@ -36,8 +36,10 @@
                     = link_to @item.user.nickname, "/users/#{@item.user_id}"
                 %tr
                   %th カテゴリー
-                  %td 
-                    =@item.category.name
+                  %td
+                    = link_to "#{@category_parent.name}","#"
+                    %br= link_to "#{@category_child.name}","#"
+                    = link_to "#{@category_grandchild.name}","#"
                 %tr
                   %th ブランド
                   %td
