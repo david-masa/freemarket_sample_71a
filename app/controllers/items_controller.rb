@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: "出品しました"
     else
       @item.images.new
+      @category_parent_array = Category.where(ancestry: nil)
       render :new
     end
   end
