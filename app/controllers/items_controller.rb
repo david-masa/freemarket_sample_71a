@@ -41,6 +41,26 @@ class ItemsController < ApplicationController
 
 
   def edit
+    # @item = Item.new
+    # @item.images.new
+    @category_parent_array = Category.where(ancestry: nil)
+
+    def get_parent
+      @category_parent_array = Category.where(ancestry: nil)
+    end
+    
+    def get_category_children
+      respond_to do |format|
+        format.html
+        format.json do
+          @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+        end
+      end
+    end
+
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
   end  
 
   def update
