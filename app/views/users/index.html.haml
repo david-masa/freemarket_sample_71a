@@ -1,15 +1,16 @@
 = render partial: 'layouts/header', locals: { header: @header }
 .u_body
-  = render "users/side-bar"
-  .u_container
-    .u_profile 
-      .u_profile_box
-        = link_to "#", class: "u_profile_box_btn" do
-          = image_tag "member_photo_noimage_thumb.png",size: "180x180" 
-          %h2.u_profile_box_btn_name hoge
-          .u_profile_box_grade
-            %span.u_profile_box_grade-number 評価数 120
-            %span.u_profile_box_grade-amount 出品数 100
+  .u_body_main
+    = render "users/side-bar"
+    .u_container
+      .u_profile 
+        .u_profile_box
+          = link_to "#", class: "u_profile_box_btn" do
+            = image_tag "member_photo_noimage_thumb.png",size: "180x180" 
+            %h2.u_profile_box_btn_name hoge
+            .u_profile_box_grade
+              %span.u_profile_box_grade-number 評価数 120
+              %span.u_profile_box_grade-amount 出品数 100
 // 以下は必須実装部分ではないので、必要に応じて適用する
 -# .u_detail
 -#   .u_detail_review-box

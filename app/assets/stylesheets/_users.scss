@@ -151,11 +151,16 @@
   top: 0;
   bottom: 0;
   background-color: whitesmoke;
-  margin: 0 auto;
-  padding: 40px 0 40px 100px;
   display: flex;
+  margin: 0 auto;
+  .u_body_main{
+    margin: 0 auto;
+    display: flex;
+    padding-top: 50px;
+  }
   .u_container{
     margin-left: 50px;
+    margin-right: 70px;
     width: 700px;
     height: 335px;
     background-color: white;
