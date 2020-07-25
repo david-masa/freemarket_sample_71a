@@ -1,12 +1,18 @@
 .p-wrapper{
   background-color: whitesmoke;
-  padding: 40px 0 40px 100px;
+  margin: 0 auto;
   display: flex;
   height: 1001px;
+  .p-wrapper_center{
+    margin: 0 auto;
+    display: flex;
+    padding-top: 50px;
+  }
   .p-sign_up_main{
     background-color: #FFFFFF;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     margin-left: 50px;
+    margin-right: 70px;
     &_content{
       font-size: 22px;
       font-weight: bold;
@@ -139,6 +145,7 @@
   width: 700px;
   background-color: #fff;
   margin-left:50px;
+  margin-right: 70px;
   &_container{
     &_message{
       font-size: 18px;

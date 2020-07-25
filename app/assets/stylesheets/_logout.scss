@@ -1,9 +1,15 @@
 .out__wrapper {
   background-color: whitesmoke;
-  padding: 40px 0 40px 100px;
+  margin: 0 auto;
   display: flex;
   height: 1001px;
+  .out-wrapper_center{
+    margin: 0 auto;
+    display: flex;
+    padding-top: 50px;
+  }
   &__main-bar{
+    margin-right: 70px;
     margin-left: 50px;
     width: 700px;
     height: 179px;
@@ -21,12 +27,22 @@
       .logout-btn{
       margin-top: 0 auto;
       width: 100%;
+      height: 50px;
       background-color:#3ccAce;
       border: 1px solid #3ccAce;
       color: #fff;
       line-height: 48px;
       font-size: 14px;
       border-radius: 4px;
+      position: relative;
+      }
+      .logout-f{
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       }
     }
   }
