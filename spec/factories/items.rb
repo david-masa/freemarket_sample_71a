@@ -14,7 +14,7 @@ FactoryBot.define do
     # after(:build) do |item|
     #   item.images << build(:image, item: item)
     # end
-    association :user
+    # association :user
     # association :images
   end
 end
