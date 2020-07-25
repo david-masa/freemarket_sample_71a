@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function(){
     var parentCategory = document.getElementById('item_category_id').value;
     if (parentCategory != "---"){
       $.ajax({
-        url: 'get_category_children', //エラーが起きる場合はurlを'/items/get_category_children'に変更する 
+        url: '/items/get_category_children', //エラーが起きる場合はurlを'/items/get_category_children'に変更する 
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json'
@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
