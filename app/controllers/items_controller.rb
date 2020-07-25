@@ -82,8 +82,10 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:images)
     @item = Item.find(params[:id])
-    @category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(5)
-    
+    @category_id = @item.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 
   def top
