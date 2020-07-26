@@ -34,7 +34,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "出品しました"
     else
-      redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
+      @item.images.new
+      render :new
     end
   end
 
