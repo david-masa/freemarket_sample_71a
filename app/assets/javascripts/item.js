@@ -14,6 +14,8 @@ $(document).on('turbolinks:load', function() {
                   </div>`
       return html;
     }
+
+    
     // 投稿編集時
     if (window.location.href.match(/\/items\/\d+\/edit/)){
       //登録済み画像のプレビュー表示欄の要素を取得する
