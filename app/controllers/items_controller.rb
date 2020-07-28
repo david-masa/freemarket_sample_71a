@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :ensure_current_user, only: [:edit, :update]
-  before_action :set_item, only:[:edit, :update, :destroy]	
+  before_action :ensure_current_user, only:[:edit, :update]
+  before_action :set_item, only:[:edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -31,10 +31,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path, notice: "出品しました"
     else
       @item.images.new
+      @category_parent_array = Category.where(ancestry: nil)
       render :new
     end
   end
