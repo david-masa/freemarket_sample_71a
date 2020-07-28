@@ -5,6 +5,7 @@ describe Item do
       it 'is invalid without category_id' do
         item = build(:item, category_id: nil)
         item.images.build(FactoryBot.attributes_for(:image))
+        # item.categories.build(FactoryBot.attributes_for(:categories))
         item.valid?
         expect(item.errors[:category_id]).to include("を入力してください")
       end
@@ -12,6 +13,7 @@ describe Item do
       it "brandがなくてもは登録できること" do
         item = build(:item, brand: "")
         item.images.build(FactoryBot.attributes_for(:image))
+        # item.categories.build(FactoryBot.attributes_for(:categories))
         # binding.pry
         expect(item).to be_valid
       end

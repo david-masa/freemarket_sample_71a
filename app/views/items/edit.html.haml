@@ -4,7 +4,7 @@
       
   .n__form__container
     =form_for @item do |f|
-      -# = render 'layouts/error_messages', model: f.object
+    -# = f.object.errors.messages
       %ul
         .n__image__container
           %p.message 商品出品画像（必須）
@@ -20,15 +20,14 @@
                       .delete-btn
                         %span 削除
             .label-content
-              %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+              %label{for: "item_images_attributes_#{@item.images.length}_src", class: "label-box", id: "label-box--#{@item.images.length}"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :images do |i|
                 = i.file_field :src, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }
+                = i.check_box :_destroy, class: "hidden-checkbox"
+              - @item.images.length.upto(4) do |i|
+                %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src", class: "hidden-field", type: "file"}
         .n__item__container
           %p.message 商品名（必須）
           = f.text_field :name, class: "name-box",  placeholder: "商品名（必須 40文字まで)"
@@ -38,7 +37,7 @@
           %p.message 商品の詳細
           %p.message カテゴリー（必須)
           .sell-category-box
-            = f.collection_select :category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'sell__item-category', id: 'item_category_id'}
+            = f.collection_select :category_id, @category_parent_array, :id, :name, {include_blank: "---", id: 'item_category_id'}, {class: "sell__item-category"}
           %p.message ブランド（任意）
           = f.text_field :brand, class: "select-box", placeholder: "例）アディダス"
           %p.message 商品の状態（必須）
