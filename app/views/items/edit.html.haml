@@ -37,7 +37,9 @@
           %p.message 商品の詳細
           %p.message カテゴリー（必須)
           .sell-category-box
-            = f.collection_select :category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'sell__item-category', id: 'item_category_id'}
+            = f.collection_select :category_id, @category_parent_array, :id, :name, {prompt: "---", selected: @item.category.parent.parent }, {class: 'sell__item-category', id: 'item_category_id'}
+            = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {prompt: "---", selected: @item.category.parent }, {class: 'sell__item-category', id: 'item_category_id'}
+            = f.collection_select :category_id, @item.category.siblings, :id, :name, {prompt: "---", selected: @item.category }, {class: 'sell__item-category', id: 'item_category_id'}
           %p.message ブランド（任意）
           = f.text_field :brand, class: "select-box", placeholder: "例）アディダス"
           %p.message 商品の状態（必須）

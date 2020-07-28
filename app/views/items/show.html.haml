@@ -37,10 +37,11 @@
                 %tr
                   %th カテゴリー
                   %td
-                    -# = link_to "#{@category_parent.name}","#"
-                    -# %br
-                    -# = link_to "#{@category_child.name}","#"
-                    -# = link_to "#{@category_grandchild.name}","#"
+                    = @category_parent.name
+                    %br
+                    = @category_child.name
+                    %br
+                    = @category_grandchild.name
                 %tr
                   %th ブランド
                   %td
