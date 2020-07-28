@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to root_path, notice: "出品しました"
     else
       @item.images.new
@@ -42,8 +42,6 @@ class ItemsController < ApplicationController
 
 
   def edit
-    # @item = Item.new
-    # @item.images.new
     @category_parent_array = Category.where(ancestry: nil)
 
     def get_parent
@@ -66,9 +64,10 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path
+      redirect_to item_path, notice: "商品情報を編集しました"
     else
-      render :edit
+      @category_parent_array = Category.where(ancestry: nil)
+      redirect_to edit_item_path, notice: "編集できません。入力必須項目を確認してください"
     end
   end
 
@@ -84,9 +83,9 @@ class ItemsController < ApplicationController
     @item = Item.includes(:images)
     @item = Item.find(params[:id])
     @category_id = @item.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
+    # @category_parent = Category.find(@category_id).parent.parent
+    # @category_child = Category.find(@category_id).parent
+    # @category_grandchild = Category.find(@category_id)
   end
 
   def top
